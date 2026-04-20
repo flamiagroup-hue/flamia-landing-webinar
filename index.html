@@ -687,10 +687,10 @@ class Point {
   init() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 0.2;
-    this.vy = (Math.random() - 0.5) * 0.2;
-    this.r = Math.random() * 3 + 1;
-    this.baseOpacity = Math.random() * 0.3 + 0.1;
+    this.vx = (Math.random() - 0.5) * 0.1;
+    this.vy = (Math.random() - 0.5) * 0.1;
+    this.r = Math.random() * 1.5 + 0.5;
+    this.baseOpacity = Math.random() * 0.1 + 0.05;
     this.opacity = 0;
     this.phase = Math.random() * Math.PI * 2;
     this.fadeSpeed = Math.random() * 0.02 + 0.005;
@@ -714,7 +714,7 @@ class Point {
   }
 }
 
-for(let i=0; i<80; i++) pts.push(new Point());
+for(let i=0; i<50; i++) pts.push(new Point());
 
 function animate() {
   ctx.clearRect(0,0,canvas.width,canvas.height);
