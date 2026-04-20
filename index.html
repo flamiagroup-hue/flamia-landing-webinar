@@ -345,7 +345,7 @@
       </div>
       <div class="fg"><label>Nombre completo</label><input type="text" id="f-name" placeholder="Tu nombre completo"/></div>
       <div class="fg"><label>Email</label><input type="email" id="f-email" placeholder="tu@email.com"/></div>
-      <div class="fg"><label>WhatsApp (con código de país)</label><input type="tel" id="f-phone" placeholder="+1 555 000 0000"/></div>
+      <div class="fg"><label>WhatsApp (ej: +50671423502)</label><input type="tel" id="f-phone" placeholder="+506 7142 3502"/></div>
       <div class="fg">
         <label>¿En qué mercado trabajas?</label>
         <select id="f-market">
@@ -608,12 +608,24 @@ tick(); setInterval(tick, 1000);
 function submitForm() {
   const name   = document.getElementById('f-name').value.trim();
   const email  = document.getElementById('f-email').value.trim();
-  const phone  = document.getElementById('f-phone').value.trim();
-  const market = document.getElementById('f-market').value;
-  const leads  = document.getElementById('f-leads').value;
+  const rawPhone = document.getElementById('f-phone').value.trim();
+  const market   = document.getElementById('f-market').value;
+  const leads    = document.getElementById('f-leads').value;
   const sessionId = getSessionId();
 
-  if (!name || !email) { alert('Por favor completa al menos tu nombre y email.'); return; }
+  // Sanitización estricta: solo números, y anteponemos el +
+  let phone = rawPhone.replace(/\D/g, '');
+  if (phone && !rawPhone.includes('+')) {
+    // Si el usuario no puso el +, lo agregamos
+    phone = '+' + phone;
+  } else if (rawPhone.startsWith('+')) {
+    phone = '+' + phone;
+  }
+
+  if (!name || !email || !phone) { 
+    alert('Por favor completa tu nombre, email y teléfono correctamente.'); 
+    return; 
+  }
 
   // Enviar a n8n en segundo plano
   fetch('https://personaldev-n8n.aaqnec.easypanel.host/webhook/Flamia-landing-ghl-formulario', {
