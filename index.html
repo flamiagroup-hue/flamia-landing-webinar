@@ -1,203 +1,738 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Antigravity — Atiende.pro | Por Santiago Almarza</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1476345520610427');
-    fbq('track', 'PageView');
-    </script>
-    <!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webinar en Vivo | Real Estate Infrastructure System — Flamia Group</title>
+<link rel="icon" type="image/jpeg" href="Logo-Flamia-group.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:     #020205;
+    --bg2:    #0a0a16;
+    --bg3:    #0e0e1e;
+    --accent:   #a855f7;
+    --accent-l: #c084fc;
+    --accent-d: #7e22ce;
+    --accent-v: #d946ef; /* Magenta/Fuchsia vibrante */
+    --gold:     #a855f7; /* Re-mapeo para corregir elementos 'apagados' */
+    --gold-l:   #6366f1; /* Indigo */
+    --white:  #f5f5fa;
+    --muted:  #8a8aaa;
+    --border: rgba(168,85,247,0.25);
+    --red:    #f43f5e;
+    --green:  #10b981;
+    --wa:     #25D366;
+    --glow:   rgba(147,51,234,0.3);
+    --btn-grad: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+    --btn-shine: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  }
+  html { scroll-behavior: smooth; }
+  body { background:var(--bg); color:var(--white); font-family:'Inter',sans-serif; font-size:16px; line-height:1.7; overflow-x:hidden; }
+
+  /* ── PARTICLES ── */
+  #bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+
+  /* ── STICKY BAR ── */
+  .sticky-bar { position:fixed; top:0; left:0; right:0; z-index:999; background:rgba(8,8,18,.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:10px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .s-logo { display:flex; align-items:center; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--accent); letter-spacing:.04em; }
+  .s-logo img { height:22px; filter:invert(1) brightness(1.5); margin-right:10px; }
+  .s-logo span { color:var(--white); }
+  .s-right { display:flex; gap:10px; align-items:center; }
+  .s-live { display:flex; align-items:center; gap:7px; font-size:12px; color:rgba(245,245,250,.5); }
+  .s-live .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1.1s infinite; flex-shrink:0; }
+  .btn { display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:10px 22px; border-radius:100px; text-decoration:none; cursor:pointer; border:none; transition:all .2s; }
+  .btn-gold { 
+    background: var(--btn-grad); 
+    color:#fff; 
+    box-shadow:0 0 20px rgba(168,85,247,0.4); 
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 30px rgba(168,85,247,0.6); filter:brightness(1.1); }
+  .btn-gold:active { transform:scale(.98); }
+  .btn-outline { background:transparent; color:var(--white); border:1px solid rgba(255,255,255,.2); }
+  .btn-outline:hover { border-color:rgba(255,255,255,.5); }
+  .btn-wa { background:var(--wa); color:#fff; }
+  .btn-wa:hover { background:#1fb855; transform:translateY(-1px); }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+  /* ── HERO ── */
+  .hero { min-height:100vh; padding:120px 24px 80px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212,168,67,.09) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 15% 85%, rgba(83,74,183,.07) 0%, transparent 60%); }
+  .eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(212,168,67,.09); border:1px solid var(--border); border-radius:100px; padding:6px 20px; font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:28px; }
+  .eyebrow .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1.1s infinite; }
+  h1.hero-h1 { font-family:'Montserrat',sans-serif; font-size:clamp(26px,5.2vw,66px); font-weight:900; line-height:1.08; letter-spacing:-.02em; max-width:920px; margin-bottom:22px; }
+  .gold-text { background:linear-gradient(130deg,var(--accent) 0%,#6366f1 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .hero-sub { font-size:clamp(15px,2vw,19px); color:rgba(245,245,250,.65); max-width:640px; margin-bottom:36px; font-weight:300; }
+
+  /* countdown */
+  .cd-wrap { margin-bottom:44px; }
+  .cd-label { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+  .cd { display:flex; gap:10px; justify-content:center; align-items:flex-start; }
+  .cu { text-align:center; min-width:68px; }
+  .cn { font-family:'Montserrat',sans-serif; font-size:clamp(26px,4vw,44px); font-weight:900; color:var(--accent); background:rgba(168,85,247,0.07); border:1px solid var(--border); border-radius:10px; padding:10px 12px; display:block; line-height:1; letter-spacing:-.01em; }
+  .cl { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:6px; display:block; }
+  .cs { font-family:'Montserrat',sans-serif; font-size:34px; color:var(--accent); opacity:.45; margin-top:6px; }
+
+  /* ── VSL + FORM GRID ── */
+  .vsl-grid { display:grid; grid-template-columns:1fr 430px; gap:32px; max-width:1160px; width:100%; margin:0 auto; align-items:start; }
+
+  /* video */
+  .video-wrap { background:#000; border-radius:14px; border:1px solid var(--border); overflow:hidden; position:relative; aspect-ratio:16/9; }
+  .video-wrap video { width:100%; height:100%; display:block; object-fit:cover; }
+
+  /* form */
+  .form-card { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:36px 32px; position:relative; overflow:hidden; }
+  .form-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold)); }
+  .form-card h2 { font-family:'Montserrat',sans-serif; font-size:17px; font-weight:700; line-height:1.3; margin-bottom:6px; }
+  .form-sub { font-size:13px; color:var(--muted); margin-bottom:22px; line-height:1.5; }
+  .spots-badge { display:flex; align-items:center; gap:8px; background:rgba(224,52,52,.1); border:1px solid rgba(224,52,52,.3); border-radius:8px; padding:10px 14px; font-size:13px; font-weight:600; color:#f87171; margin-bottom:20px; }
+  .spots-badge .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1s infinite; flex-shrink:0; }
+  .fg { margin-bottom:13px; }
+  .fg label { display:block; font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+  .fg input, .fg select { width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:13px 16px; color:var(--white); font-family:'Inter',sans-serif; font-size:15px; outline:none; transition:border-color .2s; }
+  .fg input:focus, .fg select:focus { border-color:var(--gold); }
+  .fg select option { background:#1a1a2e; color:var(--white); }
+  .form-btn { 
+    width:100%; 
+    background: var(--btn-grad); 
+    color:#fff; 
+    font-family:'Montserrat',sans-serif; 
+    font-weight:700; 
+    font-size:14px; 
+    letter-spacing:.06em; 
+    text-transform:uppercase; 
+    padding:20px; 
+    border:none; 
+    border-radius:12px; 
+    cursor:pointer; 
+    transition:all .3s cubic-bezier(0.4, 0, 0.2, 1); 
+    margin-top:10px; 
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.5), 0 0 15px rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .form-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--btn-shine);
+    transition: none;
+    animation: btn-shine 4s infinite;
+  }
+  @keyframes btn-shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+  }
+  .form-btn:hover { 
+    transform:translateY(-3px); 
+    box-shadow: 0 15px 35px -5px rgba(168, 85, 247, 0.6), 0 0 20px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
+  }
+  .form-btn:active { transform:scale(.97); }
+  .form-privacy { text-align:center; font-size:11px; color:rgba(245,245,250,.28); margin-top:10px; line-height:1.5; }
+  .form-bullets { list-style:none; margin-top:18px; }
+  .form-bullets li { font-size:13px; color:rgba(245,245,250,.62); padding:5px 0; display:flex; gap:8px; align-items:flex-start; }
+  .form-bullets li::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
+
+  /* ── SHARED ── */
+  section { padding:96px 24px; }
+  .container { max-width:1100px; margin:0 auto; }
+  .section-tag { display:inline-block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--accent); background:rgba(168,85,247,0.08); border:1px solid var(--border); border-radius:4px; padding:5px 14px; margin-bottom:20px; }
+  h2.st { font-family:'Montserrat',sans-serif; font-size:clamp(22px,3.5vw,44px); font-weight:900; line-height:1.1; letter-spacing:-.02em; margin-bottom:16px; }
+  .sd { font-size:17px; color:rgba(245,245,250,.58); max-width:580px; font-weight:300; margin-bottom:52px; }
+  .cta-strip { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:56px; }
+  .cta-strip .btn { padding:16px 36px; font-size:12px; }
+
+  /* ── PAIN ── */
+  .pain-section { background:var(--bg2); }
+  .pain-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+  .pain-card { background:rgba(244,63,94,.04); border:1px solid rgba(244,63,94,.15); border-radius:12px; padding:28px 24px; position:relative; overflow:hidden; }
+  .pain-card::before { content:''; position:absolute; top:0; left:0; bottom:0; width:3px; background:var(--red); opacity:.55; }
+  .pain-num { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; color:var(--red); opacity:.85; display:block; margin-bottom:10px; letter-spacing:-.02em; }
+  .pain-card p { font-size:14px; color:rgba(245,245,250,.62); line-height:1.6; }
+
+  /* ── LEVELS ── */
+  .levels-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .level-card { border-radius:16px; padding:36px 28px; border:1px solid rgba(255,255,255,.06); position:relative; overflow:hidden; transition:transform .2s; }
+  .level-card:hover { transform:translateY(-4px); }
+  .lv1 { background:var(--bg2); }
+  .lv2 { background:var(--bg3); }
+  .lv3 { background:linear-gradient(145deg,#0e0e1e,#1a1a2e); border-color:var(--accent-d); box-shadow:0 0 60px rgba(168,85,247,0.1); }
+  .level-tag { font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin-bottom:16px; display:block; }
+  .lv1 { border-color:rgba(255,255,255,0.05); }
+  .lv2 { border-color:rgba(99,102,241,0.2); }
+  .level-card h3 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; margin-bottom:14px; }
+  .level-income { font-family:'Montserrat',sans-serif; font-size:21px; font-weight:900; margin-bottom:20px; display:block; }
+  .lv1 .level-income { color:var(--muted); }
+  .lv2 .level-income { color:#a5b4fc; }
+  .lv3 .level-income { color:var(--accent); }
+  .ll { list-style:none; }
+  .ll li { font-size:13px; color:rgba(245,245,250,.58); padding:5px 0; display:flex; gap:8px; }
+  .lv3 .ll li { color:rgba(245,245,250,.8); }
+  .level-verdict { text-align:center; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; color:var(--gold); background:rgba(212,168,67,.07); border:1px solid var(--border); border-radius:12px; padding:24px; max-width:640px; margin:40px auto 0; line-height:1.5; }
+
+  /* ── AGENDA ── */
+  .agenda-section { background:var(--bg2); }
+  .agenda-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+  .agenda-card { background:var(--bg); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:28px 24px; display:flex; gap:20px; align-items:flex-start; transition:border-color .2s, transform .2s; }
+  .agenda-card:hover { border-color:var(--border); transform:translateY(-3px); }
+  .ag-num { font-family:'Montserrat',sans-serif; font-size:28px; font-weight:900; color:var(--gold); opacity:.22; flex-shrink:0; line-height:1; min-width:34px; }
+  .agenda-card h3 { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; margin-bottom:8px; }
+  .agenda-card p { font-size:13px; color:var(--muted); line-height:1.6; }
+
+  /* ── COMPONENTS ── */
+  .comp-list { display:flex; flex-direction:column; gap:16px; }
+  .comp-row { background:var(--bg2); border:1px solid rgba(255,255,255,.05); border-radius:14px; padding:28px 32px; display:grid; grid-template-columns:52px 1fr auto; align-items:center; gap:24px; transition:border-color .2s, background .2s; }
+  .comp-row:hover { border-color:var(--border); background:rgba(212,168,67,.02); }
+  .comp-n { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; color:var(--gold); opacity:.14; line-height:1; }
+  .comp-t { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px; }
+  .comp-d { font-size:14px; color:var(--muted); line-height:1.6; }
+  .comp-tag { font-size:10px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; background:rgba(212,168,67,.1); border:1px solid var(--border); border-radius:6px; padding:5px 12px; color:var(--gold); white-space:nowrap; }
+
+  /* ── FLOW ── */
+  .flow-section { background:var(--bg2); }
+  .flow-steps { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; margin-bottom:44px; }
+  .flow-step { background:var(--bg3); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:20px 22px; text-align:center; min-width:130px; flex:1; max-width:170px; }
+  .step-icon { font-size:26px; margin-bottom:8px; display:block; }
+  .step-name { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; margin-bottom:4px; }
+  .step-desc { font-size:11px; color:var(--muted); line-height:1.5; }
+  .flow-arrow { color:var(--gold); font-size:22px; opacity:.38; }
+  .flow-result { background:linear-gradient(135deg,rgba(212,168,67,.07),rgba(212,168,67,.03)); border:1px solid var(--border); border-radius:12px; padding:28px 32px; text-align:center; font-size:17px; color:rgba(245,245,250,.82); font-weight:300; max-width:700px; margin:0 auto; font-style:italic; }
+  .flow-result strong { font-weight:700; color:var(--gold); font-style:normal; }
+
+  /* ── CASES ── */
+  .cases-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); gap:28px; }
+  .case-card { background:var(--bg2); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:36px 32px; position:relative; overflow:hidden; }
+  .case-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); }
+  .case-name { font-family:'Montserrat',sans-serif; font-size:18px; font-weight:700; margin-bottom:4px; }
+  .case-role { font-size:13px; color:var(--muted); margin-bottom:28px; }
+  .before-after { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .ba-col h4 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin-bottom:14px; }
+  .ba-col.before h4 { color:var(--red); opacity:.8; }
+  .ba-col.after h4 { color:var(--green); }
+  .ba-col ul { list-style:none; }
+  .ba-col li { font-size:13px; color:rgba(245,245,250,.62); padding:5px 0; display:flex; gap:8px; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,.04); }
+  .ba-col li:last-child { border-bottom:none; }
+  .ba-col.before li::before { content:'✗'; color:var(--red); opacity:.8; font-size:12px; flex-shrink:0; margin-top:1px; }
+  .ba-col.after li::before { content:'✓'; color:var(--green); font-size:12px; flex-shrink:0; margin-top:1px; }
+
+  /* ── BONUSES ── */
+  .bonus-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:44px; }
+  .bonus-card { background:var(--bg); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:28px 24px; display:flex; gap:16px; align-items:flex-start; }
+  .bonus-n { font-family:'Montserrat',sans-serif; font-size:32px; font-weight:900; color:var(--gold); opacity:.18; flex-shrink:0; line-height:1; }
+  .bonus-card h3 { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; margin-bottom:8px; }
+  .bonus-card p { font-size:13px; color:var(--muted); line-height:1.6; }
+  .conditions-box { background:rgba(212,168,67,.05); border:1px solid var(--border); border-radius:12px; padding:28px 32px; max-width:720px; margin:0 auto; }
+  .conditions-box h3 { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--gold); margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
+  .conditions-box ul { list-style:none; }
+  .conditions-box li { font-size:14px; color:rgba(245,245,250,.68); padding:7px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:10px; align-items:flex-start; }
+  .conditions-box li:last-child { border-bottom:none; }
+  .conditions-box li::before { content:'→'; color:var(--gold); font-weight:700; flex-shrink:0; }
+
+  /* ── FINAL CTA ── */
+  .cta-section { text-align:center; padding:120px 24px; position:relative; overflow:hidden; }
+  .cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,168,67,.06) 0%, transparent 70%); pointer-events:none; }
+  .cta-section h2 { font-family:'Montserrat',sans-serif; font-size:clamp(22px,4vw,50px); font-weight:900; line-height:1.1; letter-spacing:-.02em; max-width:720px; margin:0 auto 18px; }
+  .cta-section p { font-size:17px; color:rgba(245,245,250,.58); max-width:500px; margin:0 auto 48px; }
+  .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
+  .cta-big { padding:20px 48px !important; font-size:13px !important; }
+  .scarcity { margin-top:8px; font-size:13px; color:var(--muted); display:flex; align-items:center; justify-content:center; gap:8px; }
+  .scarcity .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1s infinite; }
+
+  /* ── WA FLOAT ── */
+
+  /* ── MODAL ── */
+  .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.78); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:24px; }
+  .modal-overlay.active { display:flex; }
+  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:20px; padding:48px 40px; max-width:520px; width:100%; position:relative; text-align:center; }
+  .modal::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:20px 20px 0 0; background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold)); }
+  .modal-close { position:absolute; top:16px; right:18px; background:none; border:none; cursor:pointer; color:var(--muted); font-size:22px; line-height:1; }
+  .modal-icon { font-size:52px; margin-bottom:16px; display:block; }
+  .modal h3 { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; margin-bottom:10px; }
+  .modal p { font-size:15px; color:rgba(245,245,250,.65); margin-bottom:28px; line-height:1.6; }
+  .modal-name { color:var(--gold); font-weight:600; }
+  .modal-wa-btn { display:flex; align-items:center; justify-content:center; gap:12px; background:var(--wa); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.04em; text-transform:uppercase; padding:18px 32px; border-radius:12px; text-decoration:none; transition:background .2s; margin-bottom:14px; }
+  .modal-wa-btn:hover { background:#1fb855; }
+  .modal-skip { font-size:12px; color:var(--muted); cursor:pointer; text-decoration:underline; }
+  .modal-skip:hover { color:var(--white); }
+
+  /* ── FOOTER ── */
+  footer { background:var(--bg2); border-top:1px solid rgba(255,255,255,.04); padding:40px 24px; text-align:center; }
+  .f-logo { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--gold); margin-bottom:12px; }
+  footer p { font-size:12px; color:rgba(245,245,250,.28); line-height:1.9; }
+  hr.div { border:none; border-top:1px solid rgba(255,255,255,.04); }
+
+  /* WA icon shorthand */
+  .wa-ico { flex-shrink:0; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:960px) {
+    .vsl-grid { grid-template-columns:1fr; }
+    .levels-grid { grid-template-columns:1fr; }
+    .before-after { grid-template-columns:1fr; }
+    .cases-grid { grid-template-columns:1fr; }
+    .comp-row { grid-template-columns:52px 1fr; }
+    .comp-tag { grid-column:2; }
+    .s-live { display:none; }
+  }
+  @media(max-width:600px) {
+    .flow-steps { flex-direction:column; }
+    .flow-arrow { transform:rotate(90deg); }
+    .flow-step { max-width:100%; }
+    .modal { padding:36px 24px; }
+  }
+</style>
 </head>
 <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1476345520610427&ev=PageView&noscript=1"
-    /></noscript>
-    <div class="mesh-bg"></div>
 
-    <!-- Header / Navbar -->
-    <nav style="padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; background: rgba(5, 7, 10, 0.8); backdrop-filter: blur(10px);">
-        <div style="font-size: 1.5rem; font-weight: 800; letter-spacing: -1px;">ATIENDE<span class="gradient-text">.PRO</span></div>
-        <a href="https://wa.me/50671423502" class="btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Empieza Ahora</a>
-    </nav>
+<canvas id="bg-canvas"></canvas>
 
-    <!-- Hero Section -->
-    <section class="hero grid-2" style="min-height: 80vh;">
-        <div class="hero-content">
-            <h1 style="font-size: 4.5rem; margin-bottom: 20px;">Google <br><span class="gradient-text">Antigravity</span></h1>
-            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 30px; max-width: 500px;">
-                Rompe las leyes de la automatización tradicional. Aprende a crear agentes de IA que piensan y ejecutan por ti. 
-                <br><br>
-                <strong>Por Santiago Almarza.</strong>
-            </p>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="#booking" class="btn-primary">Inscribirme por $100</a>
-                <div style="font-size: 0.9rem; color: var(--secondary); font-weight: 600;">
-                    <i class="fas fa-bolt"></i> Acceso inmediato
-                </div>
-            </div>
+<!-- ── STICKY HEADER ── -->
+<header class="sticky-bar">
+  <div class="s-logo"><img src="Logo-Flamia-group.jpeg" alt="Logo">FLAMIA <span>GROUP</span></div>
+  <div class="s-right">
+    <div class="s-live"><span class="dot"></span>21 mayo 2026 · 10 AM ET</div>
+    <a class="btn btn-gold" href="#registro">Reservar lugar →</a>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero" id="inicio">
+  <div class="eyebrow">
+    ✨ POWERED BY FLAMIA
+  </div>
+
+  <h1 class="hero-h1">Cómo los agentes que más cierran<br><span class="gold-text">operan hoy con IA</span></h1>
+  <p class="hero-sub">El sistema que califica leads, agenda citas y registra todo en el CRM — automáticamente. Sin depender de WhatsApp. Sin coordinación manual.</p>
+
+  <div class="cd-wrap">
+    <p class="cd-label">El webinar comienza en</p>
+    <div class="cd">
+      <div class="cu"><span class="cn" id="cd-d">00</span><span class="cl">Días</span></div>
+      <span class="cs">:</span>
+      <div class="cu"><span class="cn" id="cd-h">00</span><span class="cl">Horas</span></div>
+      <span class="cs">:</span>
+      <div class="cu"><span class="cn" id="cd-m">00</span><span class="cl">Minutos</span></div>
+      <span class="cs">:</span>
+      <div class="cu"><span class="cn" id="cd-s">00</span><span class="cl">Segundos</span></div>
+    </div>
+  </div>
+
+  <!-- VSL + FORM -->
+  <div class="vsl-grid" id="registro">
+    <div class="video-wrap">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/M_u3pLhd33c" 
+        title="Webinar Flamia Group" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen
+        style="border-radius: 12px;">
+      </iframe>
+    </div>
+
+    <div class="form-card">
+      <h2>Accede al Webinar Gratuito</h2>
+      <p class="form-sub">Registra tus datos y asegura tu lugar. Cupos limitados para garantizar atención real.</p>
+      <div class="spots-badge">
+        <span class="dot"></span>
+        Solo 12 lugares · Aplicación abierta 24 horas
+      </div>
+      <div class="fg"><label>Nombre completo</label><input type="text" id="f-name" placeholder="Tu nombre completo"/></div>
+      <div class="fg"><label>Email</label><input type="email" id="f-email" placeholder="tu@email.com"/></div>
+      <div class="fg"><label>WhatsApp (ej: +17861234567)</label><input type="tel" id="f-phone" placeholder="+1 786 123 4567"/></div>
+      <div class="fg">
+        <label>¿En qué mercado trabajas?</label>
+        <select id="f-market">
+          <option value="">Selecciona tu mercado</option>
+          <option>EE.UU. — Residencial</option>
+          <option>EE.UU. — Comercial</option>
+          <option>Colombia</option>
+          <option>México</option>
+          <option>España</option>
+          <option>Otro / Internacional</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>¿Cuántos leads recibes al mes?</label>
+        <select id="f-leads">
+          <option value="">Selecciona un rango</option>
+          <option>Menos de 20</option>
+          <option>20 – 50</option>
+          <option>50 – 100</option>
+          <option>Más de 100</option>
+        </select>
+      </div>
+      <button class="form-btn" onclick="submitForm()">✓ RESERVAR MI LUGAR GRATIS AHORA →</button>
+      <p class="form-privacy">🔒 Sin spam. Solo confirmación y recordatorio del webinar.</p>
+      <ul class="form-bullets">
+        <li>Demo en vivo — el sistema funcionando en tiempo real</li>
+        <li>Casos reales con resultados medibles antes y después</li>
+        <li>Oferta exclusiva solo para asistentes del webinar</li>
+        <li>Q&amp;A en vivo — tus preguntas respondidas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN ── -->
+<section class="pain-section">
+  <div class="container">
+    <div class="section-tag">La realidad sin sistema</div>
+    <h2 class="st">Lo que te cuesta no tener<br>infraestructura — hoy mismo</h2>
+    <p class="sd">No es un problema de leads. Es un problema de infraestructura.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><span class="pain-num">$12K–$24K</span><p>En comisiones perdidas al año por falta de seguimiento — dinero que sale sin que lo veas salir.</p></div>
+      <div class="pain-card"><span class="pain-num">30–40%</span><p>De leads de noche sin respuesta automática. Se van con otro agente que sí estaba disponible.</p></div>
+      <div class="pain-card"><span class="pain-num">8–12 hrs</span><p>A la semana en coordinación manual de citas — tiempo que no genera ni un solo dólar.</p></div>
+      <div class="pain-card"><span class="pain-num">70%</span><p>De leads calificados se pierden sin un CRM activo. Tu negocio no puede escalar así.</p></div>
+    </div>
+    <div class="cta-strip">
+      <a href="#registro" class="btn btn-gold">Quiero aprender a solucionarlo →</a>
+      <a href="https://wa.me/17863409689?text=Hola%2C%20vi%20el%20webinar%20de%20Flamia%20y%20tengo%20preguntas" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Hablar con Flamia Group</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEVELS ── -->
+<section>
+  <div class="container">
+    <div class="section-tag">¿En cuál nivel estás tú?</div>
+    <h2 class="st">Los 3 niveles del agente inmobiliario</h2>
+    <p class="sd">La diferencia entre el Nivel 2 y el Nivel 3 no es talento. Es infraestructura.</p>
+    <div class="levels-grid">
+      <div class="level-card lv1">
+        <span class="level-tag">Nivel 1 · Operativo</span>
+        <h3>Trabaja más, gana menos</h3>
+        <span class="level-income">$30K – $60K / año</span>
+        <ul class="ll"><li>✗ WhatsApp es su único CRM</li><li>✗ No sabe cuántos leads tiene activos</li><li>✗ Pierde propiedades por falta de seguimiento</li><li>✗ Su negocio no funciona sin él</li></ul>
+      </div>
+      <div class="level-card lv2">
+        <span class="level-tag">Nivel 2 · Productivo</span>
+        <h3>Cierra bien, pero depende de él</h3>
+        <span class="level-income">$60K – $120K / año</span>
+        <ul class="ll"><li>→ Cierra propiedades regularmente</li><li>→ Coordina todo manualmente</li><li>✗ Negocio depende 100% de su presencia</li><li>✗ No puede escalar sin contratar más</li></ul>
+      </div>
+      <div class="level-card lv3">
+        <span class="level-tag">Nivel 3 · Profesional con Sistema</span>
+        <h3>Opera como empresa</h3>
+        <span class="level-income">$150K – $300K+ / año</span>
+        <ul class="ll"><li>✓ IA trabaja leads cuando él no puede</li><li>✓ Abre el lunes con citas ya confirmadas</li><li>✓ Sistema califica, agenda y registra solo</li><li>✓ Opera como empresa — no como freelance</li></ul>
+      </div>
+    </div>
+    <p class="level-verdict">"La diferencia entre el Nivel 2 y el Nivel 3 no es talento. Es infraestructura."</p>
+    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Quiero llegar al Nivel 3 →</a></div>
+  </div>
+</section>
+
+<!-- ── AGENDA ── -->
+<section class="agenda-section">
+  <div class="container">
+    <div class="section-tag">Lo que veremos el 21 de Mayo</div>
+    <h2 class="st">45 minutos. Sin relleno.<br>Solo lo que funciona hoy.</h2>
+    <p class="sd">Contenido concreto, demo real y una oferta específica para agentes como tú.</p>
+    <div class="agenda-grid">
+      <div class="agenda-card"><span class="ag-num">01</span><div><h3>La Realidad del Agente</h3><p>Por qué el 80% no escala aunque trabaje más. Los números exactos del costo de no tener sistema.</p></div></div>
+      <div class="agenda-card"><span class="ag-num">02</span><div><h3>Infraestructura con IA</h3><p>Qué es, cómo funciona y por qué cambia completamente la operación de un agente inmobiliario.</p></div></div>
+      <div class="agenda-card"><span class="ag-num">03</span><div><h3>Los 5 Componentes del Sistema</h3><p>CRM · IA WhatsApp · Instagram · Agendamiento · Dashboard — todo integrado y funcionando.</p></div></div>
+      <div class="agenda-card"><span class="ag-num">04</span><div><h3>Casos de Éxito Reales</h3><p>3 implementaciones reales con resultados medibles. Antes y después de tener infraestructura con IA.</p></div></div>
+      <div class="agenda-card"><span class="ag-num">05</span><div><h3>Demo en Vivo</h3><p>El sistema funcionando: lead → IA → cita confirmada. Sin edición, sin cortes, en tiempo real.</p></div></div>
+      <div class="agenda-card"><span class="ag-num">06</span><div><h3>La Oferta + Q&amp;A</h3><p>Condiciones exclusivas para asistentes del webinar y tus preguntas respondidas en vivo.</p></div></div>
+    </div>
+    <div class="cta-strip">
+      <a href="#registro" class="btn btn-gold">Reservar mi lugar — es gratis →</a>
+      <a href="https://wa.me/17863409689?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20webinar%20de%20Flamia%20Group" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Tengo preguntas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPONENTS ── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Real Estate Infrastructure System</div>
+    <h2 class="st">5 piezas integradas que trabajan<br>24 horas, 7 días a la semana</h2>
+    <p class="sd">El lead llega. El sistema lo trabaja. La cita aparece en tu calendario. Tú solo cierras.</p>
+    <div class="comp-list">
+      <div class="comp-row"><span class="comp-n">01</span><div><div class="comp-t">CRM Profesional — GoHighLevel</div><div class="comp-d">Pipeline real: Lead → Contactado → Calificado → Visita → Oferta → Cerrado. Lead scoring automático. Próxima acción programada para cada prospecto — sin depender de tu memoria o WhatsApp.</div></div><span class="comp-tag">Infraestructura</span></div>
+      <div class="comp-row"><span class="comp-n">02</span><div><div class="comp-t">Agente IA en WhatsApp</div><div class="comp-d">Responde en segundos — 2AM, domingo, feriado. No es un bot genérico: responde con contexto real de tu agencia, califica leads, detecta intención de compra y alimenta el CRM en tiempo real.</div></div><span class="comp-tag">Automatización</span></div>
+      <div class="comp-row"><span class="comp-n">03</span><div><div class="comp-t">Instagram Conectado al Sistema</div><div class="comp-d">Cada DM, comentario y respuesta a historia entra automáticamente al CRM. Se clasifica. Se da seguimiento. Fin del caos — todo centralizado con historial completo.</div></div><span class="comp-tag">Integración</span></div>
+      <div class="comp-row"><span class="comp-n">04</span><div><div class="comp-t">Agendamiento Automático</div><div class="comp-d">El lead elige su cita. 3 cosas pasan simultáneamente: cita en tu calendario, confirmación al lead y perfil completo del prospecto — sin una sola llamada de coordinación.</div></div><span class="comp-tag">Conversión</span></div>
+      <div class="comp-row"><span class="comp-n">05</span><div><div class="comp-t">Dashboard Unificado</div><div class="comp-d">Un solo lugar. Todo en tiempo real. Leads activos, los más calientes, citas confirmadas y valor del pipeline — sin abrir WhatsApp, sin revisar Excel. Visible en 10 segundos.</div></div><span class="comp-tag">Métricas</span></div>
+    </div>
+    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Ver el sistema en acción el 21 de mayo →</a></div>
+  </div>
+</section>
+
+<!-- ── FLOW ── -->
+<section class="flow-section">
+  <div class="container" style="text-align:center">
+    <div class="section-tag">El flujo completo</div>
+    <h2 class="st">De lead a cita confirmada<br>— sin tocar el teléfono</h2>
+    <p class="sd" style="margin:0 auto 48px;">En segundos. A cualquier hora. Sin intervención humana.</p>
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-icon">📥</span><div class="step-name">Lead entra</div><div class="step-desc">IG · WA · Referido</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="step-icon">🤖</span><div class="step-name">IA responde</div><div class="step-desc">En segundos. 24/7.</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="step-icon">🎯</span><div class="step-name">Califica</div><div class="step-desc">¿Serio o curioso?</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="step-icon">📅</span><div class="step-name">Agenda cita</div><div class="step-desc">Link automático</div></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step"><span class="step-icon">📊</span><div class="step-name">Todo al CRM</div><div class="step-desc">Historial completo</div></div>
+    </div>
+    <div class="flow-result">El agente abre el lunes con <strong>citas ya confirmadas</strong> que el sistema consiguió mientras tenía el fin de semana libre.</div>
+    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Quiero este sistema → Regístrate gratis</a></div>
+  </div>
+</section>
+
+<!-- ── CASES ── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Casos de éxito reales</div>
+    <h2 class="st">No testimonios.<br>Operaciones implementadas.</h2>
+    <p class="sd">Resultados medibles con infraestructura real configurada por Flamia Group.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-name">Daniela Jaramillo</div>
+        <div class="case-role">Realtor · Miami, Florida — Sector Residencial</div>
+        <div class="before-after">
+          <div class="ba-col before"><h4>Antes del sistema</h4><ul><li>Gestionaba leads por WhatsApp y notas de celular</li><li>Respondía mensajes a las 11 PM sin sistema de soporte</li><li>Sin visibilidad de leads activos ni etapa en el pipeline</li><li>Perdía prospectos de Instagram por falta de seguimiento</li><li>Cerraba 1–2 propiedades al mes con esfuerzo máximo</li></ul></div>
+          <div class="ba-col after"><h4>Después del sistema</h4><ul><li>CRM con pipeline inmobiliario activo y estructurado</li><li>IA responde leads de Instagram y WhatsApp 24/7</li><li>Llega el lunes con citas ya confirmadas automáticamente</li><li>Lead scoring identifica los prospectos más calientes</li><li>Dashboard con pipeline y métricas en tiempo real</li></ul></div>
         </div>
-        <div class="hero-visual reveal" style="position: relative;">
-            <!-- Usando la imagen generada -->
-            <img src="google_antigravity_hero_1776791261143.png" alt="Google Antigravity" style="width: 100%; border-radius: 30px; box-shadow: 0 0 50px rgba(0, 242, 255, 0.3);">
-            <div class="glass-card" style="position: absolute; bottom: -20px; right: -20px; padding: 15px 25px; border-radius: 15px;">
-                <div style="font-size: 1.5rem; font-weight: 800;">$100</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Precio Único</div>
-            </div>
+      </div>
+      <div class="case-card">
+        <div class="case-name">Tesla Technologies</div>
+        <div class="case-role">Empresa · Infraestructura de Ventas integrada en CRM</div>
+        <div class="before-after">
+          <div class="ba-col before"><h4>El reto</h4><ul><li>Equipo de ventas sin visibilidad del pipeline real</li><li>Leads sin seguimiento sistemático por falta de herramientas</li><li>Sin métricas de cierre ni tasas de conversión claras</li><li>Coordinación manual de reuniones que consumía tiempo</li></ul></div>
+          <div class="ba-col after"><h4>Lo que implementamos</h4><ul><li>Pipeline en GHL estructurado por etapas con probabilidad</li><li>Agente IA en WhatsApp — califica leads 24/7</li><li>Reuniones agendadas automáticamente con perfil del prospecto</li><li>Dashboard: leads por vendedor, conversión, pipeline total</li></ul></div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="cta-strip">
+      <a href="#registro" class="btn btn-gold">Quiero resultados como estos →</a>
+      <a href="https://wa.me/17863409689?text=Hola%2C%20vi%20los%20casos%20de%20%C3%A9xito%20de%20Flamia%20y%20quiero%20saber%20si%20aplica%20para%20mi%20operaci%C3%B3n" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>¿Aplica para mi operación?</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Fathom Snippets Section -->
-    <section id="videos">
-        <h2 style="text-align: center; font-size: 3rem; margin-bottom: 50px;">Echa un <span class="gradient-text">Vistazo</span></h2>
-        <div class="grid-3">
-            <div class="glass-card reveal">
-                <div style="height: 200px; background: #1a1a1a; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--primary);"></i>
-                </div>
-                <h3>Agentes Autónomos</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Fracción de clase: Configuración inicial de Antigravity.</p>
-            </div>
-            <div class="glass-card reveal">
-                <div style="height: 200px; background: #1a1a1a; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--primary);"></i>
-                </div>
-                <h3>MCP en Acción</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Cómo conectar herramientas externas en tiempo real.</p>
-            </div>
-            <div class="glass-card reveal">
-                <div style="height: 200px; background: #1a1a1a; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--primary);"></i>
-                </div>
-                <h3>Lógica Avanzada</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Depuración y optimización de flujos complejos.</p>
-            </div>
-        </div>
-    </section>
+<!-- ── BONUSES ── -->
+<section style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-tag">Bonos incluidos</div>
+    <h2 class="st">Lo que recibes como asistente<br>— sin costo adicional</h2>
+    <p class="sd">Solo para los agentes que entren en este ciclo de implementación.</p>
+    <div class="bonus-grid">
+      <div class="bonus-card"><span class="bonus-n">1</span><div><h3>Auditoría de Infraestructura</h3><p>Mapeamos tu operación e identificamos los puntos exactos de fuga de leads y dinero antes de implementar.</p></div></div>
+      <div class="bonus-card"><span class="bonus-n">2</span><div><h3>Blueprint de Seguimiento Profesional</h3><p>El protocolo de seguimiento personalizado según etapa e intención de compra de cada lead en tu mercado.</p></div></div>
+      <div class="bonus-card"><span class="bonus-n">3</span><div><h3>Optimización del Pipeline — 30 días</h3><p>Acompañamiento directo el primer mes para que el sistema funcione al 100% desde el día 1.</p></div></div>
+    </div>
+    <div class="conditions-box">
+      <h3>⚠ Condiciones de este ciclo</h3>
+      <ul>
+        <li>Solo 5 implementaciones por ciclo — garantizamos acompañamiento real para cada cliente</li>
+        <li>Aplicación abierta solo durante las 24 horas posteriores al webinar</li>
+        <li>Hay un proceso de aplicación — buscamos agentes listos para comprometerse</li>
+        <li>Después cerramos el acceso a este ciclo. Sin excepciones.</li>
+      </ul>
+    </div>
+    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Asegurar mi lugar en el webinar →</a></div>
+  </div>
+</section>
 
-    <!-- Interactive Syllabus -->
-    <section id="syllabus" style="background: rgba(255,255,255,0.02); border-radius: 50px; padding: 80px 5%;">
-        <h2 style="margin-bottom: 40px; text-align: center;">Temario <span class="gradient-text">Explosivo</span></h2>
-        <div class="syllabus-container" style="max-width: 800px; margin: 0 auto;">
-            <div class="glass-card" style="margin-bottom: 20px; cursor: pointer;" onclick="toggleSyllabus(1)">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 800;">MÓDULO 01</span>
-                        <h3 style="margin-top: 5px;">Fundamentos de Antigravity</h3>
-                    </div>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div id="mod1" style="display: none; padding-top: 20px; color: var(--text-muted);">
-                    <p>Entiende la infraestructura de Google para agentes autónomos. Por qué esto deja atrás a los chatbots tradicionales.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Arquitectura de Agentes de Google</li>
-                        <li>Configuración del entorno de desarrollo</li>
-                        <li>Tu primer agente en 10 minutos</li>
-                    </ul>
-                </div>
-            </div>
+<!-- ── FINAL CTA ── -->
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Cuántas propiedades más<br>vas a <span class="gold-text">dejar ir?</span></h2>
+    <p>Un webinar. Una decisión. El sistema que pone tu negocio a trabajar mientras tú tienes el fin de semana libre.</p>
+    <div class="cta-buttons">
+      <a href="#registro" class="btn btn-gold cta-big">Reservar mi lugar gratis →</a>
+      <a href="https://wa.me/17863409689?text=Hola%2C%20quiero%20agendar%20una%20sesi%C3%B3n%201%3A1%20antes%20del%20webinar%20de%20Flamia" target="_blank" class="btn btn-wa cta-big"><svg class="wa-ico" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Sesión 1:1 primero</a>
+    </div>
+    <div class="scarcity"><span class="dot"></span>Solo 12 cupos · Aplicación abierta 24 horas tras el webinar · Los cupos se están llenando</div>
+  </div>
+</section>
 
-            <div class="glass-card" style="margin-bottom: 20px; cursor: pointer;" onclick="toggleSyllabus(2)">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 800;">MÓDULO 02</span>
-                        <h3 style="margin-top: 5px;">Integración n8n + MCP</h3>
-                    </div>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div id="mod2" style="display: none; padding-top: 20px; color: var(--text-muted);">
-                    <p>El cerebro de la operación. Conecta tu agente con el mundo real y herramientas externas.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Webhooks y disparadores inteligentes</li>
-                        <li>MCP: Model Context Protocol avanzado</li>
-                        <li>Automatización de procesos de negocio</li>
-                    </ul>
-                </div>
-            </div>
+<hr class="div">
+<footer>
+  <div class="f-logo">FLAMIA GROUP</div>
+  <p>Real Estate Infrastructure System™ · Especialistas en infraestructura inmobiliaria con IA<br>flamiagroup.com · "Convertimos agentes en empresas inmobiliarias."<br><br>© 2025 Flamia Group · Todos los derechos reservados<br>Este webinar es exclusivo para agentes inmobiliarios comprometidos con escalar su operación.</p>
+</footer>
 
-            <div class="glass-card" style="margin-bottom: 20px; cursor: pointer;" onclick="toggleSyllabus(3)">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 800;">MÓDULO 03</span>
-                        <h3 style="margin-top: 5px;">Escalamiento y Monetización</h3>
-                    </div>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div id="mod3" style="display: none; padding-top: 20px; color: var(--text-muted);">
-                    <p>Cómo vender este servicio a clientes y escalar tu propia infraestructura.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Estrategias de venta de agentes IA</li>
-                        <li>Mantenimiento y optimización de costos</li>
-                        <li>Casos de uso reales (Lead Gen, Customer Support)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="grid-2">
-        <div>
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">Tú eliges el <span class="gradient-text">Ritmo</span></h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px;">
-                Elige cuándo quieres comenzar tu primera clase. Personaliza tu horario para las asesorías en vivo.
-            </p>
-            <ul style="list-style: none; margin-bottom: 30px;">
-                <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Material Pregrabado:</strong> Acceso inmediato a la plataforma.</li>
-                <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Asesorías en Vivo:</strong> Sesiones grupales semanales.</li>
-                <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Coaching Personal:</strong> 1-a-1 conmigo para tu proyecto.</li>
-                <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Actualizaciones:</strong> Todo el material nuevo incluido.</li>
-            </ul>
-        </div>
-        <div class="glass-card">
-            <h3>Agenda tu Inicio</h3>
-            <div style="margin-top: 20px;">
-                <label style="display: block; margin-bottom: 10px; font-size: 0.9rem;">Selecciona Fecha:</label>
-                <input type="date" style="width: 100%; padding: 15px; border-radius: 10px; background: #1a1a1a; border: 1px solid var(--glass-border); color: white; margin-bottom: 20px;">
-                
-                <label style="display: block; margin-bottom: 10px; font-size: 0.9rem;">Horario Preferido (GMT-6):</label>
-                <select style="width: 100%; padding: 15px; border-radius: 10px; background: #1a1a1a; border: 1px solid var(--glass-border); color: white; margin-bottom: 30px;">
-                    <option>Mañana (9:00 AM - 12:00 PM)</option>
-                    <option>Tarde (2:00 PM - 5:00 PM)</option>
-                    <option>Noche (7:00 PM - 9:00 PM)</option>
-                </select>
+<!-- ── MODAL POST-REGISTRO ── -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-icon">🎉</span>
+    <h3>¡Registro recibido, <span class="modal-name" id="modal-name">agente</span>!</h3>
+    <p>Tu lugar está reservado para el <strong>21 de mayo a las 10 AM ET</strong>.<br>Para confirmar y entrar al seguimiento del webinar, envíame un mensaje directo por WhatsApp — un solo clic:</p>
+    <a class="modal-wa-btn" id="modal-wa-link" href="#" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Confirmar por WhatsApp →
+    </a>
+    <p class="modal-skip" onclick="closeModal()">Saltar por ahora y volver a la página</p>
+  </div>
+</div>
 
-                <a href="https://wa.me/50671423502?text=Hola%20Santiago,%20quiero%20inscribirme%20al%20curso%20Google%20Antigravity" class="btn-primary" style="width: 100%; text-align: center;">Confirmar Cupo</a>
-            </div>
-        </div>
-    </section>
+<script>
+// ── SESSION ID ──
+function getSessionId() {
+  let sid = localStorage.getItem('flamia_session_id');
+  if (!sid) {
+    sid = 'sid_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    localStorage.setItem('flamia_session_id', sid);
+  }
+  return sid;
+}
 
-    <!-- Social / Facebook Section -->
-    <section id="community" style="text-align: center; padding: 120px 5%;">
-        <div class="glass-card" style="background: linear-gradient(145deg, #1877F2 0%, #05070a 100%); max-width: 900px; margin: 0 auto; padding: 60px;">
-            <i class="fab fa-facebook-square" style="font-size: 4rem; color: white; margin-bottom: 20px;"></i>
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">Comunidad <span style="color: white;">VIP</span></h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
-                No estás solo en esto. Al inscribirte, obtienes acceso inmediato a nuestro grupo de Facebook donde compartimos flujos secretos, resolvemos dudas en tiempo real y hacemos networking de alto nivel.
-            </p>
-            <a href="https://www.facebook.com/groups/tu-grupo-link" class="btn-primary" style="background: white; color: #1877F2; border: none; font-weight: 800;">¡Quiero Unirme al Grupo!</a>
-        </div>
-    </section>
+// ── COUNTDOWN — 21 mayo 2026 10:00 AM ET ──
+const WEBINAR = new Date('2026-05-21T10:00:00-04:00');
+function tick() {
+  const diff = WEBINAR - Date.now();
+  const pad = n => String(Math.max(0,n)).padStart(2,'0');
+  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent='00'); return; }
+  document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
+  document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
+  document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
+}
+tick(); setInterval(tick, 1000);
 
-    <!-- Footer -->
-    <footer style="padding: 50px 5%; border-top: 1px solid var(--glass-border); text-align: center;">
-        <div style="font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;">ATIENDE<span class="gradient-text">.PRO</span></div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Santiago Almarza. Todos los derechos reservados.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">WhatsApp: +506 71423502</p>
-    </footer>
+// ── FORM → WhatsApp modal ──
+function submitForm() {
+  const name   = document.getElementById('f-name').value.trim();
+  const email  = document.getElementById('f-email').value.trim();
+  const rawPhone = document.getElementById('f-phone').value.trim();
+  const market   = document.getElementById('f-market').value;
+  const leads    = document.getElementById('f-leads').value;
+  const sessionId = getSessionId();
 
-    <script src="app.js"></script>
+  // Sanitización estricta: solo números, y anteponemos el +
+  let phone = rawPhone.replace(/\D/g, '');
+  if (phone && !rawPhone.includes('+')) {
+    // Si el usuario no puso el +, lo agregamos
+    phone = '+' + phone;
+  } else if (rawPhone.startsWith('+')) {
+    phone = '+' + phone;
+  }
+
+  if (!name || !email || !phone) { 
+    alert('Por favor completa tu nombre, email y teléfono correctamente.'); 
+    return; 
+  }
+
+  // Enviar a n8n en segundo plano
+  fetch('https://personaldev-n8n.aaqnec.easypanel.host/webhook/Flamia-landing-ghl-formulario', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+      name, 
+      email, 
+      phone, 
+      market, 
+      leads, 
+      sessionId, 
+      source: 'flamia-landing-1',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(err => console.error('Webhook error:', err));
+
+  const msg = encodeURIComponent(
+    `🔔 *NUEVO REGISTRO WEBINAR FLAMIA*\n\n` +
+    `👤 Nombre: ${name}\n` +
+    `📧 Email: ${email}\n` +
+    `📱 WhatsApp: ${phone || 'No ingresado'}\n` +
+    `🌎 Mercado: ${market || 'No especificado'}\n` +
+    `📊 Leads/mes: ${leads || 'No especificado'}\n\n` +
+    `✅ Me registro para el webinar del 21 de mayo a las 10 AM ET.\n` +
+    `Quiero confirmar mi lugar y recibir la info del sistema de infraestructura con IA de Flamia Group.`
+  );
+
+  document.getElementById('modal-name').textContent = name.split(' ')[0];
+  document.getElementById('modal-wa-link').href = `https://wa.me/17863409689?text=${msg}`;
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('active'); }
+document.getElementById('modal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
+
+// ── PARTICLES (NATURAL BOKEH) ──
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let pts = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+class Point {
+  constructor() {
+    this.init();
+  }
+  init() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.1;
+    this.vy = (Math.random() - 0.5) * 0.1;
+    this.r = Math.random() * 1.5 + 0.5;
+    this.baseOpacity = Math.random() * 0.1 + 0.05;
+    this.opacity = 0;
+    this.phase = Math.random() * Math.PI * 2;
+    this.fadeSpeed = Math.random() * 0.02 + 0.005;
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    this.phase += this.fadeSpeed;
+    this.opacity = this.baseOpacity + Math.sin(this.phase) * 0.1;
+    
+    if(this.x<0 || this.x>canvas.width || this.y<0 || this.y>canvas.height) this.init();
+  }
+  draw() {
+    ctx.beginPath();
+    let g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 4);
+    g.addColorStop(0, `rgba(168, 85, 247, ${this.opacity})`);
+    g.addColorStop(0.4, `rgba(168, 85, 247, ${this.opacity * 0.3})`);
+    g.addColorStop(1, 'rgba(168, 85, 247, 0)');
+    ctx.fillStyle = g;
+    ctx.arc(this.x, this.y, this.r * 4, 0, Math.PI*2);
+    ctx.fill();
+  }
+}
+
+for(let i=0; i<50; i++) pts.push(new Point());
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // Capa de fondo muy suave
+  pts.forEach(p => {
+    p.update(); p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ── smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  });
+});
+</script>
 </body>
 </html>
