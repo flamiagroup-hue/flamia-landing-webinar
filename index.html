@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/css/intlTelInput.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -290,6 +291,17 @@
     .flow-step { max-width:100%; }
     .modal { padding:36px 24px; }
   }
+
+  /* ── INTL-TEL-INPUT OVERRIDES ── */
+  .iti { width: 100%; display: block; }
+  .iti__country-list { background-color: var(--bg2); color: var(--white); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); z-index: 99; white-space: normal;}
+  .iti__country.iti__highlight { background-color: rgba(255,255,255,.05); }
+  .iti__selected-dial-code { color: var(--white); }
+  .iti__selected-flag { background-color: transparent; border-radius: 8px 0 0 8px; padding: 0 14px; }
+  .iti__arrow { border-top-color: var(--muted); }
+  .iti__arrow--up { border-bottom-color: var(--muted); }
+  .iti__search-input { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: var(--white); border-radius: 6px; padding: 8px 12px; margin: 8px; width: calc(100% - 16px); }
+  .iti input, .iti input[type=text], .iti input[type=tel] { padding-left: 90px !important; }
 </style>
     <!-- Meta Pixel Code -->
     <script>
@@ -603,7 +615,16 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/js/intlTelInput.min.js"></script>
 <script>
+// ── INTL-TEL-INPUT INIT ──
+const phoneInput = document.querySelector("#f-phone");
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "us",
+  separateDialCode: true,
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/js/utils.js"
+});
+
 // ── SESSION ID ──
 function getSessionId() {
   let sid = localStorage.getItem('flamia_session_id');
@@ -631,24 +652,17 @@ tick(); setInterval(tick, 1000);
 function submitForm() {
   const name   = document.getElementById('f-name').value.trim();
   const email  = document.getElementById('f-email').value.trim();
-  const rawPhone = document.getElementById('f-phone').value.trim();
   const market   = document.getElementById('f-market').value;
   const leads    = document.getElementById('f-leads').value;
   const sessionId = getSessionId();
 
-  // Sanitización estricta: solo números, y anteponemos el +
-  let phone = rawPhone.replace(/\D/g, '');
-  if (phone && !rawPhone.includes('+')) {
-    // Si el usuario no puso el +, lo agregamos
-    phone = '+' + phone;
-  } else if (rawPhone.startsWith('+')) {
-    phone = '+' + phone;
-  }
-
-  if (!name || !email || !phone) { 
-    alert('Por favor completa tu nombre, email y teléfono correctamente.'); 
+  if (!name || !email || !iti.isValidNumber()) { 
+    alert('Por favor completa tu nombre, email y un número de teléfono válido.'); 
     return; 
   }
+  
+  // Obtener el número completo con el código de país
+  const phone = iti.getNumber();
 
   // Enviar a n8n en segundo plano
   fetch('https://personaldev-n8n.aaqnec.easypanel.host/webhook/Flamia-landing-ghl-formulario', {
