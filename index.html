@@ -3,767 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webinar en Vivo | Real Estate Infrastructure System — Flamia Group</title>
+<title>FLAMIA Group | Automatización e IA para tu negocio</title>
+<meta name="description" content="Implementamos CRM, automatización e inteligencia artificial en WhatsApp para que tu negocio atienda, dé seguimiento y agende clientes las 24 horas.">
+<meta name="theme-color" content="#020205">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FLAMIA Group | Automatización e IA para tu negocio">
+<meta property="og:description" content="CRM, automatización e inteligencia artificial en WhatsApp para que no pierdas ni un cliente.">
+<meta property="og:image" content="https://flamia-landing-webinar.vercel.app/Logo-Flamia-group.jpeg">
 <link rel="icon" type="image/jpeg" href="Logo-Flamia-group.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/css/intlTelInput.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg:     #020205;
-    --bg2:    #0a0a16;
-    --bg3:    #0e0e1e;
-    --accent:   #a855f7;
-    --accent-l: #c084fc;
-    --accent-d: #7e22ce;
-    --accent-v: #d946ef; /* Magenta/Fuchsia vibrante */
-    --gold:     #a855f7; /* Re-mapeo para corregir elementos 'apagados' */
-    --gold-l:   #6366f1; /* Indigo */
-    --white:  #f5f5fa;
-    --muted:  #8a8aaa;
-    --border: rgba(168,85,247,0.25);
-    --red:    #f43f5e;
-    --green:  #10b981;
-    --wa:     #25D366;
-    --glow:   rgba(147,51,234,0.3);
+    --bg: #020205; --bg2: #0a0a16; --bg3: #0e0e1e;
+    --accent: #a855f7; --accent-l: #c084fc; --accent-d: #7e22ce; --indigo: #6366f1;
+    --white: #f5f5fa; --muted: #9a9ab8;
+    --border: rgba(168,85,247,.25);
+    --red: #f43f5e; --green: #10b981;
+    --wa: #0f7a45; --wa-h: #0c6a3b;
     --btn-grad: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
-    --btn-shine: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
   }
   html { scroll-behavior: smooth; }
-  body { background:var(--bg); color:var(--white); font-family:'Inter',sans-serif; font-size:16px; line-height:1.7; overflow-x:hidden; }
+  body { background: var(--bg); color: var(--white); font: 400 16px/1.7 'Inter', sans-serif; overflow-x: hidden; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent-l); outline-offset: 3px; }
+  #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+  section[id] { scroll-margin-top: 60px; }
 
-  /* ── PARTICLES ── */
-  #bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+  /* ── HEADER ── */
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(8,8,18,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .logo { display: flex; align-items: center; font: 700 14px 'Montserrat', sans-serif; letter-spacing: .03em; color: var(--accent-l); text-decoration: none; }
+  .logo img { height: 24px; filter: invert(1) brightness(1.5); margin-right: 10px; }
+  .logo span { color: var(--white); margin-left: 5px; }
 
-  /* ── STICKY BAR ── */
-  .sticky-bar { position:fixed; top:0; left:0; right:0; z-index:999; background:rgba(8,8,18,.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); padding:10px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-  .s-logo { display:flex; align-items:center; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--accent); letter-spacing:.04em; }
-  .s-logo img { height:22px; filter:invert(1) brightness(1.5); margin-right:10px; }
-  .s-logo span { color:var(--white); }
-  .s-right { display:flex; gap:10px; align-items:center; }
-  .s-live { display:flex; align-items:center; gap:7px; font-size:12px; color:rgba(245,245,250,.5); }
-  .s-live .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1.1s infinite; flex-shrink:0; }
-  .btn { display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:10px 22px; border-radius:100px; text-decoration:none; cursor:pointer; border:none; transition:all .2s; }
-  .btn-gold { 
-    background: var(--btn-grad); 
-    color:#fff; 
-    box-shadow:0 0 20px rgba(168,85,247,0.4); 
-    border: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-gold:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 30px rgba(168,85,247,0.6); filter:brightness(1.1); }
-  .btn-gold:active { transform:scale(.98); }
-  .btn-outline { background:transparent; color:var(--white); border:1px solid rgba(255,255,255,.2); }
-  .btn-outline:hover { border-color:rgba(255,255,255,.5); }
-  .btn-wa { background:var(--wa); color:#fff; }
-  .btn-wa:hover { background:#1fb855; transform:translateY(-1px); }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+  /* ── BUTTONS ── */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font: 700 14px 'Montserrat', sans-serif; padding: 14px 26px; border-radius: 100px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform .2s, box-shadow .2s, background .2s, border-color .2s; }
+  .btn:active { transform: scale(.98); }
+  .btn.sm { padding: 10px 18px; font-size: 13px; }
+  .btn-wa { background: var(--wa); color: #fff; border-color: rgba(37,211,102,.55); box-shadow: 0 8px 28px -8px rgba(37,211,102,.45); }
+  .btn-wa:hover { background: var(--wa-h); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.25); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.55); }
+  .wa-ico { flex-shrink: 0; }
 
-  /* ── HERO ── */
-  .hero { min-height:100vh; padding:120px 24px 80px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
-  .hero::before { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 80% 55% at 50% 0%, rgba(212,168,67,.09) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 15% 85%, rgba(83,74,183,.07) 0%, transparent 60%); }
-  .eyebrow { display:inline-flex; align-items:center; gap:8px; background:rgba(212,168,67,.09); border:1px solid var(--border); border-radius:100px; padding:6px 20px; font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; margin-bottom:28px; }
-  .eyebrow .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1.1s infinite; }
-  h1.hero-h1 { font-family:'Montserrat',sans-serif; font-size:clamp(26px,5.2vw,66px); font-weight:900; line-height:1.08; letter-spacing:-.02em; max-width:920px; margin-bottom:22px; }
-  .gold-text { background:linear-gradient(130deg,var(--accent) 0%,#6366f1 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .hero-sub { font-size:clamp(15px,2vw,19px); color:rgba(245,245,250,.65); max-width:640px; margin-bottom:36px; font-weight:300; }
+  /* ── HERO (VSL) ── */
+  .hero { padding: 112px 24px 72px; text-align: center; }
+  .pill { display: inline-block; background: rgba(168,85,247,.1); border: 1px solid var(--border); border-radius: 100px; padding: 6px 18px; font-size: 13px; font-weight: 500; color: var(--accent-l); margin-bottom: 24px; }
+  h1 { font: 900 clamp(32px, 5.6vw, 62px)/1.06 'Montserrat', sans-serif; letter-spacing: -.02em; max-width: 900px; margin: 0 auto 20px; }
+  .grad { background: linear-gradient(130deg, var(--accent-l), var(--indigo)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+  .hero-sub { font-size: clamp(16px, 2vw, 19px); color: rgba(245,245,250,.72); max-width: 660px; margin: 0 auto 36px; font-weight: 300; }
+  .vsl { position: relative; max-width: 880px; margin: 0 auto 32px; border-radius: 20px; padding: 3px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(126,34,206,.6); }
+  .vsl::before { content: ''; position: absolute; left: 50%; top: 50%; width: 200%; aspect-ratio: 1; translate: -50% -50%; background: conic-gradient(from 0deg, transparent 0 55%, var(--accent) 78%, var(--indigo) 90%, transparent); animation: spin 6s linear infinite; }
+  .vsl-in { position: relative; border-radius: 17px; overflow: hidden; aspect-ratio: 16/9; background: #000; }
+  .vsl-in iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 760px; margin: 0 auto; }
+  .jump a { font-size: 13px; text-decoration: none; padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,.14); color: rgba(245,245,250,.75); transition: border-color .2s, color .2s; }
+  .jump a:hover { border-color: var(--accent); color: #fff; }
 
-  /* countdown */
-  .cd-wrap { margin-bottom:44px; }
-  .cd-label { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
-  .cd { display:flex; gap:10px; justify-content:center; align-items:flex-start; }
-  .cu { text-align:center; min-width:68px; }
-  .cn { font-family:'Montserrat',sans-serif; font-size:clamp(26px,4vw,44px); font-weight:900; color:var(--accent); background:rgba(168,85,247,0.07); border:1px solid var(--border); border-radius:10px; padding:10px 12px; display:block; line-height:1; letter-spacing:-.01em; }
-  .cl { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:6px; display:block; }
-  .cs { font-family:'Montserrat',sans-serif; font-size:34px; color:var(--accent); opacity:.45; margin-top:6px; }
+  /* ── SECTIONS ── */
+  .blk { padding: 96px 24px; }
+  .blk.alt { background: rgba(10,10,22,.72); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .rev .vis { order: -1; }
+  .center { text-align: center; }
+  .center .lead { margin-inline: auto; }
+  .lvl-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent-l); background: rgba(168,85,247,.09); border: 1px solid var(--border); border-radius: 100px; padding: 5px 14px; }
+  .center > .tag { margin-bottom: 14px; }
+  .ladder { display: flex; gap: 5px; }
+  .ladder i { width: 26px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.12); }
+  .ladder i.on { background: var(--btn-grad); }
+  h2 { font: 800 clamp(25px, 3.6vw, 40px)/1.12 'Montserrat', sans-serif; letter-spacing: -.015em; margin-bottom: 16px; }
+  .lead { font-size: 17px; color: rgba(245,245,250,.72); font-weight: 300; margin-bottom: 22px; max-width: 520px; }
+  .ticks { list-style: none; margin-bottom: 28px; }
+  .ticks li { display: flex; gap: 10px; padding: 5px 0; font-size: 15px; color: rgba(245,245,250,.84); }
+  .ticks li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
 
-  /* ── VSL + FORM GRID ── */
-  .vsl-grid { display:grid; grid-template-columns:1fr 430px; gap:32px; max-width:1160px; width:100%; margin:0 auto; align-items:start; }
+  /* ── VISUAL CARD (animation stage) ── */
+  .vis { background: linear-gradient(160deg, #0e0e1e, #0a0a16); border: 1px solid var(--border); border-radius: 20px; padding: 20px; min-height: 360px; position: relative; overflow: hidden; box-shadow: 0 30px 80px -30px rgba(126,34,206,.45); }
 
-  /* video */
-  .video-wrap { background:#000; border-radius:14px; border:1px solid var(--border); overflow:hidden; position:relative; aspect-ratio:16/9; }
-  .video-wrap video { width:100%; height:100%; display:block; object-fit:cover; }
+  /* stepper states (only active once JS arms the box) */
+  .armed [data-step] { opacity: 0; transform: translateY(10px); transition: opacity .4s, transform .4s; }
+  .armed [data-step].on { opacity: 1; transform: none; }
+  .armed.grow [data-step] { display: none; opacity: 1; transform: none; transition: none; }
+  .armed.grow [data-step].on { display: block; animation: pop .4s both; }
+  .armed.dim [data-step] { opacity: .3; transform: none; }
+  .armed.dim [data-step].on { opacity: 1; }
 
-  /* form */
-  .form-card { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:36px 32px; position:relative; overflow:hidden; }
-  .form-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold)); }
-  .form-card h2 { font-family:'Montserrat',sans-serif; font-size:17px; font-weight:700; line-height:1.3; margin-bottom:6px; }
-  .form-sub { font-size:13px; color:var(--muted); margin-bottom:22px; line-height:1.5; }
-  .spots-badge { display:flex; align-items:center; gap:8px; background:rgba(224,52,52,.1); border:1px solid rgba(224,52,52,.3); border-radius:8px; padding:10px 14px; font-size:13px; font-weight:600; color:#f87171; margin-bottom:20px; }
-  .spots-badge .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1s infinite; flex-shrink:0; }
-  .fg { margin-bottom:13px; }
-  .fg label { display:block; font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
-  .fg input, .fg select { width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:13px 16px; color:var(--white); font-family:'Inter',sans-serif; font-size:15px; outline:none; transition:border-color .2s; }
-  .fg input:focus, .fg select:focus { border-color:var(--gold); }
-  .fg select option { background:#1a1a2e; color:var(--white); }
-  .form-btn { 
-    width:100%; 
-    background: var(--btn-grad); 
-    color:#fff; 
-    font-family:'Montserrat',sans-serif; 
-    font-weight:700; 
-    font-size:14px; 
-    letter-spacing:.06em; 
-    text-transform:uppercase; 
-    padding:20px; 
-    border:none; 
-    border-radius:12px; 
-    cursor:pointer; 
-    transition:all .3s cubic-bezier(0.4, 0, 0.2, 1); 
-    margin-top:10px; 
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.5), 0 0 15px rgba(99, 102, 241, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .form-btn::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: var(--btn-shine);
-    transition: none;
-    animation: btn-shine 4s infinite;
-  }
-  @keyframes btn-shine {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
-  }
-  .form-btn:hover { 
-    transform:translateY(-3px); 
-    box-shadow: 0 15px 35px -5px rgba(168, 85, 247, 0.6), 0 0 20px rgba(99, 102, 241, 0.4);
-    filter: brightness(1.1);
-  }
-  .form-btn:active { transform:scale(.97); }
-  .form-privacy { text-align:center; font-size:11px; color:rgba(245,245,250,.28); margin-top:10px; line-height:1.5; }
-  .form-bullets { list-style:none; margin-top:18px; }
-  .form-bullets li { font-size:13px; color:rgba(245,245,250,.62); padding:5px 0; display:flex; gap:8px; align-items:flex-start; }
-  .form-bullets li::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
+  /* phone / chat */
+  .ph-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 14px; }
+  .ph-head b { display: block; font: 700 14px 'Montserrat', sans-serif; line-height: 1.2; }
+  .ph-head small { font-size: 12px; color: var(--muted); }
+  .av { width: 40px; height: 40px; border-radius: 50%; background: #2a2a44; display: grid; place-items: center; font: 700 13px 'Montserrat', sans-serif; flex-shrink: 0; position: relative; }
+  .av.ai { background: var(--btn-grad); }
+  .badge { margin-left: auto; background: var(--red); color: #fff; border-radius: 100px; min-width: 28px; padding: 2px 10px; text-align: center; font: 700 12px 'Montserrat', sans-serif; visibility: hidden; }
+  .ph-body { display: flex; flex-direction: column; gap: 10px; min-height: 250px; }
+  .m { padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.45; max-width: 84%; position: relative; }
+  .m.wt { padding-bottom: 22px; }
+  .m time { position: absolute; right: 10px; bottom: 4px; font-size: 10px; opacity: .55; }
+  .m.in { background: #1b1b30; border-top-left-radius: 4px; align-self: flex-start; }
+  .m.out { background: var(--btn-grad); border-top-right-radius: 4px; align-self: flex-end; }
+  .typing { align-self: flex-end; background: var(--accent-d); border-radius: 14px; padding: 12px 14px; display: flex; gap: 4px; }
+  .armed.grow .typing.on { display: flex; }
+  .typing i { width: 6px; height: 6px; border-radius: 50%; background: #fff; opacity: .5; animation: dot 1s infinite; }
+  .typing i:nth-child(2) { animation-delay: .15s; }
+  .typing i:nth-child(3) { animation-delay: .3s; }
+  .lost, .saved { align-self: center; border-radius: 100px; padding: 8px 16px; font: 700 13px 'Montserrat', sans-serif; text-align: center; }
+  .lost { background: rgba(244,63,94,.12); border: 1px solid rgba(244,63,94,.4); color: #fda4af; }
+  .saved { background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.4); color: #6ee7b7; }
 
-  /* ── SHARED ── */
-  section { padding:96px 24px; }
-  .container { max-width:1100px; margin:0 auto; }
-  .section-tag { display:inline-block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--accent); background:rgba(168,85,247,0.08); border:1px solid var(--border); border-radius:4px; padding:5px 14px; margin-bottom:20px; }
-  h2.st { font-family:'Montserrat',sans-serif; font-size:clamp(22px,3.5vw,44px); font-weight:900; line-height:1.1; letter-spacing:-.02em; margin-bottom:16px; }
-  .sd { font-size:17px; color:rgba(245,245,250,.58); max-width:580px; font-weight:300; margin-bottom:52px; }
-  .cta-strip { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:56px; }
-  .cta-strip .btn { padding:16px 36px; font-size:12px; }
+  /* browser mock (nivel 1) */
+  .br-top { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #15152a; border-radius: 12px 12px 0 0; }
+  .br-top i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.2); }
+  .br-top span { margin-left: 10px; flex: 1; background: rgba(255,255,255,.06); border-radius: 100px; padding: 2px 12px; font-size: 11px; color: var(--muted); }
+  .br-body { background: #101024; border-radius: 0 0 12px 12px; padding: 16px; min-height: 260px; display: flex; flex-direction: column; gap: 12px; }
+  .bl-nav { height: 14px; border-radius: 6px; background: rgba(255,255,255,.1); width: 60%; }
+  .bl-hero { border-radius: 12px; padding: 22px 16px; background: linear-gradient(135deg, rgba(168,85,247,.35), rgba(99,102,241,.25)); }
+  .bl-hero span { display: block; height: 10px; border-radius: 5px; background: rgba(255,255,255,.55); margin-bottom: 8px; }
+  .bl-hero span + span { width: 60%; background: rgba(255,255,255,.3); margin-bottom: 0; }
+  .bl-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .bl-row i { height: 54px; border-radius: 10px; background: rgba(255,255,255,.07); }
+  .bl-btn { align-self: flex-start; background: var(--wa); border-radius: 100px; padding: 8px 16px; font: 700 12px 'Montserrat', sans-serif; }
+  .toast { position: absolute; right: 18px; bottom: 18px; background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.5); color: #6ee7b7; padding: 8px 14px; border-radius: 10px; font: 600 12px 'Inter', sans-serif; }
 
-  /* ── PAIN ── */
-  .pain-section { background:var(--bg2); }
-  .pain-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-  .pain-card { background:rgba(244,63,94,.04); border:1px solid rgba(244,63,94,.15); border-radius:12px; padding:28px 24px; position:relative; overflow:hidden; }
-  .pain-card::before { content:''; position:absolute; top:0; left:0; bottom:0; width:3px; background:var(--red); opacity:.55; }
-  .pain-num { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; color:var(--red); opacity:.85; display:block; margin-bottom:10px; letter-spacing:-.02em; }
-  .pain-card p { font-size:14px; color:rgba(245,245,250,.62); line-height:1.6; }
+  /* kanban (nivel 2) */
+  .kb-in { position: relative; }
+  .kb-cols { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .kc { padding: 0 4px; border-left: 1px solid rgba(255,255,255,.06); }
+  .kc:first-child { border-left: 0; }
+  .kc h4 { font: 700 12px 'Montserrat', sans-serif; color: var(--muted); padding: 4px 2px 12px; text-align: center; }
+  .slot { height: 62px; }
+  .ks { background: #15152a; border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: 8px; margin-bottom: 8px; font-size: 11px; }
+  .ks b { display: block; font-size: 12px; }
+  .ks small { color: var(--muted); font-size: 10.5px; line-height: 1.3; display: block; }
+  .kmove { position: absolute; top: 36px; left: 4px; width: calc(25% - 8px); background: var(--btn-grad); border-radius: 10px; padding: 8px; font-size: 11px; box-shadow: 0 12px 30px -8px rgba(168,85,247,.7); opacity: 0; transition: left .7s cubic-bezier(.4,0,.2,1), opacity .3s; }
+  .kmove b { display: block; font-size: 12px; }
+  .kmove small { font-size: 10.5px; opacity: .85; display: block; line-height: 1.3; }
+  .kdone { position: absolute; top: -8px; right: -6px; width: 20px; height: 20px; border-radius: 50%; background: var(--green); display: grid; place-items: center; font-size: 12px; opacity: 0; transition: opacity .3s; }
+  .kb [data-step] { display: none; }
+  .kb[data-now="1"] .kmove { opacity: 1; }
+  .kb[data-now="2"] .kmove { opacity: 1; left: calc(25% + 4px); }
+  .kb[data-now="3"] .kmove { opacity: 1; left: calc(50% + 4px); }
+  .kb[data-now="4"] .kmove, .kb[data-now="5"] .kmove { opacity: 1; left: calc(75% + 4px); }
+  .kb[data-now="5"] .kdone { opacity: 1; }
+  .kb[data-now="0"] .kmove { transition: none; }
 
-  /* ── LEVELS ── */
-  .levels-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  .level-card { border-radius:16px; padding:36px 28px; border:1px solid rgba(255,255,255,.06); position:relative; overflow:hidden; transition:transform .2s; }
-  .level-card:hover { transform:translateY(-4px); }
-  .lv1 { background:var(--bg2); }
-  .lv2 { background:var(--bg3); }
-  .lv3 { background:linear-gradient(145deg,#0e0e1e,#1a1a2e); border-color:var(--accent-d); box-shadow:0 0 60px rgba(168,85,247,0.1); }
-  .level-tag { font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; margin-bottom:16px; display:block; }
-  .lv1 { border-color:rgba(255,255,255,0.05); }
-  .lv2 { border-color:rgba(99,102,241,0.2); }
-  .level-card h3 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; margin-bottom:14px; }
-  .level-income { font-family:'Montserrat',sans-serif; font-size:21px; font-weight:900; margin-bottom:20px; display:block; }
-  .lv1 .level-income { color:var(--muted); }
-  .lv2 .level-income { color:#a5b4fc; }
-  .lv3 .level-income { color:var(--accent); }
-  .ll { list-style:none; }
-  .ll li { font-size:13px; color:rgba(245,245,250,.58); padding:5px 0; display:flex; gap:8px; }
-  .lv3 .ll li { color:rgba(245,245,250,.8); }
-  .level-verdict { text-align:center; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; color:var(--gold); background:rgba(212,168,67,.07); border:1px solid var(--border); border-radius:12px; padding:24px; max-width:640px; margin:40px auto 0; line-height:1.5; }
+  /* timeline (nivel 3) */
+  .tli { position: relative; display: flex; gap: 16px; padding-bottom: 24px; }
+  .tli:last-child { padding-bottom: 0; }
+  .tli .dot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,.2); flex-shrink: 0; background: var(--bg2); z-index: 1; transition: background .3s, box-shadow .3s, border-color .3s; }
+  .tli::after { content: ''; position: absolute; left: 11px; top: 24px; bottom: 0; width: 2px; background: rgba(255,255,255,.1); transition: background .4s; }
+  .tli:last-child::after { display: none; }
+  .tli b { display: block; font: 700 14px 'Montserrat', sans-serif; }
+  .tli p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .dim .tli.on .dot { background: var(--accent); border-color: var(--accent-l); box-shadow: 0 0 16px rgba(168,85,247,.7); }
+  .dim .tli.on::after { background: var(--accent); }
 
-  /* ── AGENDA ── */
-  .agenda-section { background:var(--bg2); }
-  .agenda-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-  .agenda-card { background:var(--bg); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:28px 24px; display:flex; gap:20px; align-items:flex-start; transition:border-color .2s, transform .2s; }
-  .agenda-card:hover { border-color:var(--border); transform:translateY(-3px); }
-  .ag-num { font-family:'Montserrat',sans-serif; font-size:28px; font-weight:900; color:var(--gold); opacity:.22; flex-shrink:0; line-height:1; min-width:34px; }
-  .agenda-card h3 { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; margin-bottom:8px; }
-  .agenda-card p { font-size:13px; color:var(--muted); line-height:1.6; }
+  /* voice (nivel 5) */
+  .call-top { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .call-top b { display: block; font: 700 14px 'Montserrat', sans-serif; line-height: 1.2; }
+  .call-top small { font-size: 12px; color: var(--muted); }
+  .avw { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+  .avw .av { width: 44px; height: 44px; }
+  .ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); animation: ring 2s ease-out infinite; }
+  .ring.r2 { animation-delay: 1s; }
+  .eq { display: flex; gap: 4px; align-items: center; justify-content: center; height: 54px; margin: 8px 0 14px; }
+  .eq span { width: 5px; border-radius: 3px; background: var(--btn-grad); height: 22%; animation: eq 1.1s ease-in-out infinite; }
+  .eq span:nth-child(3n) { animation-delay: -.3s; }
+  .eq span:nth-child(3n+1) { animation-delay: -.7s; }
+  .eq span:nth-child(5n) { animation-delay: -.5s; }
+  .tr { min-height: 160px; }
+  .t { font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+  .t em { font-style: normal; font-weight: 700; color: var(--accent-l); margin-right: 6px; }
+  .t.c em { color: #7dd3fc; }
+  .t.ok { color: #6ee7b7; font-weight: 600; }
 
-  /* ── COMPONENTS ── */
-  .comp-list { display:flex; flex-direction:column; gap:16px; }
-  .comp-row { background:var(--bg2); border:1px solid rgba(255,255,255,.05); border-radius:14px; padding:28px 32px; display:grid; grid-template-columns:52px 1fr auto; align-items:center; gap:24px; transition:border-color .2s, background .2s; }
-  .comp-row:hover { border-color:var(--border); background:rgba(212,168,67,.02); }
-  .comp-n { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; color:var(--gold); opacity:.14; line-height:1; }
-  .comp-t { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px; }
-  .comp-d { font-size:14px; color:var(--muted); line-height:1.6; }
-  .comp-tag { font-size:10px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; background:rgba(212,168,67,.1); border:1px solid var(--border); border-radius:6px; padding:5px 12px; color:var(--gold); white-space:nowrap; }
+  /* dashboard (nivel 6) */
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  .kpi { background: #15152a; border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 12px; }
+  .kpi small { display: block; font-size: 11px; color: var(--muted); line-height: 1.3; }
+  .kpi b { font: 800 24px 'Montserrat', sans-serif; }
+  .cbars { display: flex; align-items: flex-end; gap: 8px; height: 130px; padding: 12px; background: #15152a; border-radius: 12px; margin-bottom: 14px; }
+  .cb { flex: 1; height: var(--h); border-radius: 6px 6px 0 0; background: var(--btn-grad); }
+  .armed .cb[data-step] { opacity: 1; transform: none; height: 4%; transition: height .8s cubic-bezier(.2,.8,.2,1); }
+  .armed .cb[data-step].on { height: var(--h); }
+  .chips2 { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips2 span { font-size: 12px; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--border); color: var(--accent-l); }
+  .note { font-size: 11px; color: var(--muted); margin-top: 12px; text-align: right; }
 
   /* ── FLOW ── */
-  .flow-section { background:var(--bg2); }
-  .flow-steps { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px; margin-bottom:44px; }
-  .flow-step { background:var(--bg3); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:20px 22px; text-align:center; min-width:130px; flex:1; max-width:170px; }
-  .step-icon { font-size:26px; margin-bottom:8px; display:block; }
-  .step-name { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; margin-bottom:4px; }
-  .step-desc { font-size:11px; color:var(--muted); line-height:1.5; }
-  .flow-arrow { color:var(--gold); font-size:22px; opacity:.38; }
-  .flow-result { background:linear-gradient(135deg,rgba(212,168,67,.07),rgba(212,168,67,.03)); border:1px solid var(--border); border-radius:12px; padding:28px 32px; text-align:center; font-size:17px; color:rgba(245,245,250,.82); font-weight:300; max-width:700px; margin:0 auto; font-style:italic; }
-  .flow-result strong { font-weight:700; color:var(--gold); font-style:normal; }
+  .flowrow { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 40px 0 32px; }
+  .fs { flex: 1 1 150px; max-width: 190px; background: var(--bg3); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 20px 14px; text-align: center; transition: border-color .3s, box-shadow .3s; }
+  .fs .ico { display: block; font-size: 28px; margin-bottom: 8px; }
+  .fs b { display: block; font: 700 13px 'Montserrat', sans-serif; margin-bottom: 4px; }
+  .fs small { display: block; font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .fa { align-self: center; color: var(--accent-l); font-size: 20px; }
+  .fa i { display: inline-block; font-style: normal; }
+  .dim .fs.on { border-color: var(--accent); box-shadow: 0 0 30px -6px rgba(168,85,247,.55); }
+  .flow-result { max-width: 680px; margin: 0 auto 32px; background: rgba(168,85,247,.06); border: 1px solid var(--border); border-radius: 14px; padding: 22px 28px; font-size: 17px; font-weight: 300; color: rgba(245,245,250,.85); }
+  .flow-result strong { font-weight: 700; color: var(--accent-l); }
 
   /* ── CASES ── */
-  .cases-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); gap:28px; }
-  .case-card { background:var(--bg2); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:36px 32px; position:relative; overflow:hidden; }
-  .case-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); }
-  .case-name { font-family:'Montserrat',sans-serif; font-size:18px; font-weight:700; margin-bottom:4px; }
-  .case-role { font-size:13px; color:var(--muted); margin-bottom:28px; }
-  .before-after { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  .ba-col h4 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin-bottom:14px; }
-  .ba-col.before h4 { color:var(--red); opacity:.8; }
-  .ba-col.after h4 { color:var(--green); }
-  .ba-col ul { list-style:none; }
-  .ba-col li { font-size:13px; color:rgba(245,245,250,.62); padding:5px 0; display:flex; gap:8px; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,.04); }
-  .ba-col li:last-child { border-bottom:none; }
-  .ba-col.before li::before { content:'✗'; color:var(--red); opacity:.8; font-size:12px; flex-shrink:0; margin-top:1px; }
-  .ba-col.after li::before { content:'✓'; color:var(--green); font-size:12px; flex-shrink:0; margin-top:1px; }
+  .cases { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0 36px; text-align: left; }
+  .case { flex: 1 1 320px; max-width: 352px; background: var(--bg2); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: 26px 24px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .case::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--indigo), transparent); }
+  .case h3 { font: 700 19px 'Montserrat', sans-serif; margin: 6px 0 12px; }
+  .cpill { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+  .cpill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 1.4s infinite; }
+  .case .ticks { margin-bottom: 0; flex: 1; }
+  .case .ticks li { font-size: 14px; }
+  .case .btn { align-self: flex-start; }
+  .chain { display: flex; align-items: center; gap: 6px; margin: 18px 0; font-size: 11.5px; }
+  .chain span { padding: 5px 10px; border-radius: 100px; border: 1px solid rgba(255,255,255,.14); color: var(--muted); animation: lit 3.3s infinite; }
+  .chain span:nth-of-type(2) { animation-delay: 1.1s; }
+  .chain span:nth-of-type(3) { animation-delay: 2.2s; }
+  .chain i { flex: 1; height: 1px; background: rgba(255,255,255,.14); min-width: 10px; }
+  .marq { overflow: hidden; margin-bottom: 36px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marq-track { display: flex; gap: 12px; width: max-content; animation: marq 36s linear infinite; }
+  .marq-track span { white-space: nowrap; font-size: 14px; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border); color: rgba(245,245,250,.8); background: rgba(168,85,247,.06); }
 
-  /* ── BONUSES ── */
-  .bonus-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:44px; }
-  .bonus-card { background:var(--bg); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:28px 24px; display:flex; gap:16px; align-items:flex-start; }
-  .bonus-n { font-family:'Montserrat',sans-serif; font-size:32px; font-weight:900; color:var(--gold); opacity:.18; flex-shrink:0; line-height:1; }
-  .bonus-card h3 { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; margin-bottom:8px; }
-  .bonus-card p { font-size:13px; color:var(--muted); line-height:1.6; }
-  .conditions-box { background:rgba(212,168,67,.05); border:1px solid var(--border); border-radius:12px; padding:28px 32px; max-width:720px; margin:0 auto; }
-  .conditions-box h3 { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--gold); margin-bottom:16px; text-transform:uppercase; letter-spacing:.05em; }
-  .conditions-box ul { list-style:none; }
-  .conditions-box li { font-size:14px; color:rgba(245,245,250,.68); padding:7px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:10px; align-items:flex-start; }
-  .conditions-box li:last-child { border-bottom:none; }
-  .conditions-box li::before { content:'→'; color:var(--gold); font-weight:700; flex-shrink:0; }
+  /* ── PROCESS ── */
+  .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; text-align: left; }
+  .stp { background: var(--bg3); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 28px 24px; transition: border-color .3s; }
+  .stp .n { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font: 800 15px 'Montserrat', sans-serif; background: rgba(168,85,247,.15); color: var(--accent-l); margin-bottom: 14px; transition: background .3s, color .3s; }
+  .stp h3 { font: 700 17px 'Montserrat', sans-serif; margin-bottom: 8px; }
+  .stp p { font-size: 14.5px; color: rgba(245,245,250,.72); }
+  .dim .stp.on { border-color: var(--accent); }
+  .dim .stp.on .n { background: var(--btn-grad); color: #fff; }
+  .pbar { height: 4px; border-radius: 3px; background: rgba(255,255,255,.1); margin: 36px 0 0; overflow: hidden; }
+  .pbar::after { content: ''; display: block; height: 100%; width: 0; background: var(--btn-grad); transition: width .9s ease; }
+  [data-now="1"] > .pbar::after { width: 33.3%; }
+  [data-now="2"] > .pbar::after { width: 66.6%; }
+  [data-now="3"] > .pbar::after { width: 100%; }
 
-  /* ── FINAL CTA ── */
-  .cta-section { text-align:center; padding:120px 24px; position:relative; overflow:hidden; }
-  .cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,168,67,.06) 0%, transparent 70%); pointer-events:none; }
-  .cta-section h2 { font-family:'Montserrat',sans-serif; font-size:clamp(22px,4vw,50px); font-weight:900; line-height:1.1; letter-spacing:-.02em; max-width:720px; margin:0 auto 18px; }
-  .cta-section p { font-size:17px; color:rgba(245,245,250,.58); max-width:500px; margin:0 auto 48px; }
-  .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:28px; }
-  .cta-big { padding:20px 48px !important; font-size:13px !important; }
-  .scarcity { margin-top:8px; font-size:13px; color:var(--muted); display:flex; align-items:center; justify-content:center; gap:8px; }
-  .scarcity .dot { width:8px; height:8px; background:var(--red); border-radius:50%; animation:blink 1s infinite; }
+  /* ── FAQ ── */
+  .faq { max-width: 760px; margin: 36px auto 0; text-align: left; }
+  details { background: var(--bg2); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; margin-bottom: 10px; transition: border-color .2s; }
+  details[open] { border-color: var(--border); }
+  summary { list-style: none; cursor: pointer; padding: 18px 22px; font: 600 15px 'Montserrat', sans-serif; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-size: 24px; line-height: 1; color: var(--accent-l); transition: transform .25s; flex-shrink: 0; }
+  details[open] summary::after { transform: rotate(45deg); }
+  .ans { padding: 0 22px 18px; font-size: 14.5px; color: rgba(245,245,250,.74); }
+  details[open] .ans { animation: fade .35s ease; }
 
-  /* ── WA FLOAT ── */
+  /* ── FINAL CTA + FOOTER ── */
+  .cta { text-align: center; padding: 110px 24px; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(168,85,247,.12), transparent 70%); pointer-events: none; }
+  .cta .container { position: relative; }
+  .cta h2 { max-width: 720px; margin: 0 auto 16px; font-size: clamp(26px, 4.2vw, 46px); }
+  .cta p { font-size: 17px; color: rgba(245,245,250,.7); max-width: 520px; margin: 0 auto 40px; font-weight: 300; }
+  .btn-big { padding: 18px 40px; font-size: 16px; position: relative; }
+  .btn-big::after { content: ''; position: absolute; inset: -2px; border-radius: 100px; border: 2px solid rgba(37,211,102,.7); animation: ping 2.2s ease-out infinite; pointer-events: none; }
+  footer { background: var(--bg2); border-top: 1px solid rgba(255,255,255,.05); padding: 40px 24px; text-align: center; }
+  .f-logo { font: 700 14px 'Montserrat', sans-serif; color: var(--accent-l); margin-bottom: 10px; }
+  footer p { font-size: 13px; color: rgba(245,245,250,.5); line-height: 1.9; }
+  footer a { text-decoration: underline; }
 
-  /* ── MODAL ── */
-  .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.78); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:24px; }
-  .modal-overlay.active { display:flex; }
-  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:20px; padding:48px 40px; max-width:520px; width:100%; position:relative; text-align:center; }
-  .modal::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:20px 20px 0 0; background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold)); }
-  .modal-close { position:absolute; top:16px; right:18px; background:none; border:none; cursor:pointer; color:var(--muted); font-size:22px; line-height:1; }
-  .modal-icon { font-size:52px; margin-bottom:16px; display:block; }
-  .modal h3 { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:700; margin-bottom:10px; }
-  .modal p { font-size:15px; color:rgba(245,245,250,.65); margin-bottom:28px; line-height:1.6; }
-  .modal-name { color:var(--gold); font-weight:600; }
-  .modal-wa-btn { display:flex; align-items:center; justify-content:center; gap:12px; background:var(--wa); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.04em; text-transform:uppercase; padding:18px 32px; border-radius:12px; text-decoration:none; transition:background .2s; margin-bottom:14px; }
-  .modal-wa-btn:hover { background:#1fb855; }
-  .modal-skip { font-size:12px; color:var(--muted); cursor:pointer; text-decoration:underline; }
-  .modal-skip:hover { color:var(--white); }
-
-  /* ── FOOTER ── */
-  footer { background:var(--bg2); border-top:1px solid rgba(255,255,255,.04); padding:40px 24px; text-align:center; }
-  .f-logo { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--gold); margin-bottom:12px; }
-  footer p { font-size:12px; color:rgba(245,245,250,.28); line-height:1.9; }
-  hr.div { border:none; border-top:1px solid rgba(255,255,255,.04); }
-
-  /* WA icon shorthand */
-  .wa-ico { flex-shrink:0; }
+  /* ── KEYFRAMES ── */
+  @keyframes spin { to { rotate: 360deg; } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  @keyframes dot { 0%,100% { transform: translateY(0); opacity: .4; } 50% { transform: translateY(-4px); opacity: 1; } }
+  @keyframes ring { from { transform: scale(1); opacity: .7; } to { transform: scale(1.9); opacity: 0; } }
+  @keyframes eq { 50% { height: 100%; } }
+  @keyframes lit { 0%,40%,100% { border-color: rgba(255,255,255,.14); color: var(--muted); background: transparent; } 12%,28% { border-color: var(--accent); color: #fff; background: rgba(168,85,247,.2); } }
+  @keyframes marq { to { transform: translateX(-50%); } }
+  @keyframes ping { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.25, 1.6); opacity: 0; } }
 
   /* ── RESPONSIVE ── */
-  @media(max-width:960px) {
-    .vsl-grid { grid-template-columns:1fr; }
-    .levels-grid { grid-template-columns:1fr; }
-    .before-after { grid-template-columns:1fr; }
-    .cases-grid { grid-template-columns:1fr; }
-    .comp-row { grid-template-columns:52px 1fr; }
-    .comp-tag { grid-column:2; }
-    .s-live { display:none; }
+  @media (max-width: 900px) {
+    .blk { padding: 72px 20px; }
+    .split { grid-template-columns: 1fr; gap: 36px; }
+    .rev .vis { order: 0; }
+    .steps3 { grid-template-columns: 1fr; }
   }
-  @media(max-width:600px) {
-    .flow-steps { flex-direction:column; }
-    .flow-arrow { transform:rotate(90deg); }
-    .flow-step { max-width:100%; }
-    .modal { padding:36px 24px; }
+  @media (max-width: 600px) {
+    .topbar { padding: 10px 16px; }
+    .logo { font-size: 12px; }
+    .logo img { height: 20px; margin-right: 8px; }
+    .hero { padding: 100px 18px 56px; }
+    .vis { padding: 16px; min-height: 0; }
+    .flowrow { flex-direction: column; align-items: center; }
+    .fs { max-width: 340px; width: 100%; }
+    .fa i { transform: rotate(90deg); }
+    .kpi b { font-size: 20px; }
   }
-
-  /* ── INTL-TEL-INPUT OVERRIDES ── */
-  .iti { width: 100%; display: block; }
-  .iti__country-list { background-color: var(--bg2); color: var(--white); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); z-index: 99; white-space: normal;}
-  .iti__country.iti__highlight { background-color: rgba(255,255,255,.05); }
-  .iti__selected-dial-code { color: var(--white); }
-  .iti__selected-flag { background-color: transparent; border-radius: 8px 0 0 8px; padding: 0 14px; }
-  .iti__arrow { border-top-color: var(--muted); }
-  .iti__arrow--up { border-bottom-color: var(--muted); }
-  .iti__search-input { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: var(--white); border-radius: 6px; padding: 8px 12px; margin: 8px; width: calc(100% - 16px); }
-  .iti input, .iti input[type=text], .iti input[type=tel] { padding-left: 90px !important; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
 </style>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1476345520610427');
-    fbq('track', 'PageView');
-    </script>
-    <!-- End Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1476345520610427');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1476345520610427&ev=PageView&noscript=1"
-    /></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1476345520610427&ev=PageView&noscript=1" alt=""/></noscript>
 
-<canvas id="bg-canvas"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol></svg>
 
-<!-- ── STICKY HEADER ── -->
-<header class="sticky-bar">
-  <div class="s-logo"><img src="Logo-Flamia-group.jpeg" alt="Logo">FLAMIA <span>GROUP</span></div>
-  <div class="s-right">
-    <div class="s-live"><span class="dot"></span>21 mayo 2026 · 10 AM ET</div>
-    <a class="btn btn-gold" href="#registro">Reservar lugar →</a>
-  </div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ── HEADER ── -->
+<header class="topbar">
+  <a class="logo" href="#inicio"><img src="Logo-Flamia-group.jpeg" alt="">FLAMIA <span>GROUP</span></a>
+  <a class="btn btn-wa sm" href="https://wa.me/17863409689" data-wa="Hola, vi la página de FLAMIA Group y quiero saber cómo pueden ayudar a mi negocio."><svg class="wa-ico" width="16" height="16" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
 </header>
 
-<!-- ── HERO ── -->
+<main>
+
+<!-- ── HERO · VIDEO (VSL) ── -->
 <section class="hero" id="inicio">
-  <div class="eyebrow">
-    ✨ POWERED BY FLAMIA
-  </div>
+  <div class="pill">Automatización e IA para negocios · Miami, Florida</div>
+  <h1>Tu negocio atendiendo clientes <span class="grad">las 24 horas</span></h1>
+  <p class="hero-sub">Implementamos CRM, automatización e inteligencia artificial en WhatsApp para que respondas rápido, des seguimiento y agendes citas sin esfuerzo. Mira el video y conoce cómo funciona.</p>
 
-  <h1 class="hero-h1">Cómo los agentes que más cierran<br><span class="gold-text">operan hoy con IA</span></h1>
-  <p class="hero-sub">El sistema que califica leads, agenda citas y registra todo en el CRM — automáticamente. Sin depender de WhatsApp. Sin coordinación manual.</p>
-
-  <div class="cd-wrap">
-    <p class="cd-label">El webinar comienza en</p>
-    <div class="cd">
-      <div class="cu"><span class="cn" id="cd-d">00</span><span class="cl">Días</span></div>
-      <span class="cs">:</span>
-      <div class="cu"><span class="cn" id="cd-h">00</span><span class="cl">Horas</span></div>
-      <span class="cs">:</span>
-      <div class="cu"><span class="cn" id="cd-m">00</span><span class="cl">Minutos</span></div>
-      <span class="cs">:</span>
-      <div class="cu"><span class="cn" id="cd-s">00</span><span class="cl">Segundos</span></div>
+  <div class="vsl">
+    <div class="vsl-in">
+      <iframe src="https://www.youtube.com/embed/M_u3pLhd33c?rel=0&modestbranding=1" title="Conoce FLAMIA Group" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- VSL + FORM -->
-  <div class="vsl-grid" id="registro">
-    <div class="video-wrap">
-      <iframe 
-        width="100%" 
-        height="100%" 
-        src="https://www.youtube.com/embed/M_u3pLhd33c" 
-        title="Webinar Flamia Group" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen
-        style="border-radius: 12px;">
-      </iframe>
-    </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, vi el video de FLAMIA Group y quiero saber cómo pueden ayudar a mi negocio."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
+    <a class="btn btn-ghost" href="#problema">Ver cómo lo hacemos</a>
+  </div>
+  <nav class="jump" aria-label="Servicios">
+    <a href="#nivel-1">Página web</a>
+    <a href="#nivel-2">CRM</a>
+    <a href="#nivel-3">Automatización</a>
+    <a href="#nivel-4">IA en WhatsApp</a>
+    <a href="#nivel-5">IA de voz</a>
+    <a href="#nivel-6">Sistemas a medida</a>
+    <a href="#casos">Casos</a>
+  </nav>
+</section>
 
-    <div class="form-card">
-      <h2>Accede al Webinar Gratuito</h2>
-      <p class="form-sub">Registra tus datos y asegura tu lugar. Cupos limitados para garantizar atención real.</p>
-      <div class="spots-badge">
-        <span class="dot"></span>
-        Solo 12 lugares · Aplicación abierta 24 horas
-      </div>
-      <div class="fg"><label>Nombre completo</label><input type="text" id="f-name" placeholder="Tu nombre completo"/></div>
-      <div class="fg"><label>Email</label><input type="email" id="f-email" placeholder="tu@email.com"/></div>
-      <div class="fg"><label>WhatsApp (ej: +17861234567)</label><input type="tel" id="f-phone" placeholder="+1 786 123 4567"/></div>
-      <div class="fg">
-        <label>¿En qué mercado trabajas?</label>
-        <select id="f-market">
-          <option value="">Selecciona tu mercado</option>
-          <option>EE.UU. — Residencial</option>
-          <option>EE.UU. — Comercial</option>
-          <option>Colombia</option>
-          <option>México</option>
-          <option>España</option>
-          <option>Otro / Internacional</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label>¿Cuántos leads recibes al mes?</label>
-        <select id="f-leads">
-          <option value="">Selecciona un rango</option>
-          <option>Menos de 20</option>
-          <option>20 – 50</option>
-          <option>50 – 100</option>
-          <option>Más de 100</option>
-        </select>
-      </div>
-      <button class="form-btn" onclick="submitForm()">✓ RESERVAR MI LUGAR GRATIS AHORA →</button>
-      <p class="form-privacy">🔒 Sin spam. Solo confirmación y recordatorio del webinar.</p>
-      <ul class="form-bullets">
-        <li>Demo en vivo — el sistema funcionando en tiempo real</li>
-        <li>Casos reales con resultados medibles antes y después</li>
-        <li>Oferta exclusiva solo para asistentes del webinar</li>
-        <li>Q&amp;A en vivo — tus preguntas respondidas</li>
+<!-- ── EL PROBLEMA ── -->
+<section class="blk alt" id="problema">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">El problema</span></div>
+      <h2>Cada mensaje sin responder es un cliente que se va</h2>
+      <p class="lead">Si atiendes todo desde el celular, tarde o temprano pasa esto.</p>
+      <ul class="ticks">
+        <li>Un cliente escribe de noche o en fin de semana y nadie le contesta.</li>
+        <li>Los contactos quedan regados entre WhatsApp, notas y hojas de Excel.</li>
+        <li>Se te olvida dar seguimiento y el cliente compra en otro lado.</li>
+        <li>Pierdes horas coordinando citas una por una.</li>
       </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, estoy perdiendo clientes por no responder a tiempo. ¿Cómo lo pueden resolver?"><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero resolverlo</a>
     </div>
-  </div>
-</section>
-
-<!-- ── PAIN ── -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-tag">La realidad sin sistema</div>
-    <h2 class="st">Lo que te cuesta no tener<br>infraestructura — hoy mismo</h2>
-    <p class="sd">No es un problema de leads. Es un problema de infraestructura.</p>
-    <div class="pain-grid">
-      <div class="pain-card"><span class="pain-num">$12K–$24K</span><p>En comisiones perdidas al año por falta de seguimiento — dinero que sale sin que lo veas salir.</p></div>
-      <div class="pain-card"><span class="pain-num">30–40%</span><p>De leads de noche sin respuesta automática. Se van con otro agente que sí estaba disponible.</p></div>
-      <div class="pain-card"><span class="pain-num">8–12 hrs</span><p>A la semana en coordinación manual de citas — tiempo que no genera ni un solo dólar.</p></div>
-      <div class="pain-card"><span class="pain-num">70%</span><p>De leads calificados se pierden sin un CRM activo. Tu negocio no puede escalar así.</p></div>
-    </div>
-    <div class="cta-strip">
-      <a href="#registro" class="btn btn-gold">Quiero aprender a solucionarlo →</a>
-      <a href="https://wa.me/17863409689?text=Hola%2C%20vi%20el%20webinar%20de%20Flamia%20y%20tengo%20preguntas" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Hablar con Flamia Group</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── LEVELS ── -->
-<section>
-  <div class="container">
-    <div class="section-tag">¿En cuál nivel estás tú?</div>
-    <h2 class="st">Los 3 niveles del agente inmobiliario</h2>
-    <p class="sd">La diferencia entre el Nivel 2 y el Nivel 3 no es talento. Es infraestructura.</p>
-    <div class="levels-grid">
-      <div class="level-card lv1">
-        <span class="level-tag">Nivel 1 · Operativo</span>
-        <h3>Trabaja más, gana menos</h3>
-        <span class="level-income">$30K – $60K / año</span>
-        <ul class="ll"><li>✗ WhatsApp es su único CRM</li><li>✗ No sabe cuántos leads tiene activos</li><li>✗ Pierde propiedades por falta de seguimiento</li><li>✗ Su negocio no funciona sin él</li></ul>
-      </div>
-      <div class="level-card lv2">
-        <span class="level-tag">Nivel 2 · Productivo</span>
-        <h3>Cierra bien, pero depende de él</h3>
-        <span class="level-income">$60K – $120K / año</span>
-        <ul class="ll"><li>→ Cierra propiedades regularmente</li><li>→ Coordina todo manualmente</li><li>✗ Negocio depende 100% de su presencia</li><li>✗ No puede escalar sin contratar más</li></ul>
-      </div>
-      <div class="level-card lv3">
-        <span class="level-tag">Nivel 3 · Profesional con Sistema</span>
-        <h3>Opera como empresa</h3>
-        <span class="level-income">$150K – $300K+ / año</span>
-        <ul class="ll"><li>✓ IA trabaja leads cuando él no puede</li><li>✓ Abre el lunes con citas ya confirmadas</li><li>✓ Sistema califica, agenda y registra solo</li><li>✓ Opera como empresa — no como freelance</li></ul>
+    <div class="vis grow" data-seq data-gap="1100" data-hold="3200" aria-hidden="true">
+      <div class="ph-head"><span class="av">C</span><div><b>Cliente nuevo</b><small>escribió fuera de horario</small></div><span class="badge" data-counter>0</span></div>
+      <div class="ph-body">
+        <div class="m in wt" data-step data-count="1">Hola, buenas noches. ¿Cuánto cuesta el servicio?<time>11:48 PM</time></div>
+        <div class="m in wt" data-step data-count="2">¿Siguen disponibles?<time>11:52 PM</time></div>
+        <div class="m in wt" data-step data-count="3">¿Hola? ¿Alguien me puede ayudar?<time>12:10 AM</time></div>
+        <div class="m in wt" data-step data-count="4">Mejor le escribo a otro lugar. Gracias.<time>12:31 AM</time></div>
+        <div class="lost" data-step>Cliente perdido</div>
       </div>
     </div>
-    <p class="level-verdict">"La diferencia entre el Nivel 2 y el Nivel 3 no es talento. Es infraestructura."</p>
-    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Quiero llegar al Nivel 3 →</a></div>
   </div>
 </section>
 
-<!-- ── AGENDA ── -->
-<section class="agenda-section">
-  <div class="container">
-    <div class="section-tag">Lo que veremos el 21 de Mayo</div>
-    <h2 class="st">45 minutos. Sin relleno.<br>Solo lo que funciona hoy.</h2>
-    <p class="sd">Contenido concreto, demo real y una oferta específica para agentes como tú.</p>
-    <div class="agenda-grid">
-      <div class="agenda-card"><span class="ag-num">01</span><div><h3>La Realidad del Agente</h3><p>Por qué el 80% no escala aunque trabaje más. Los números exactos del costo de no tener sistema.</p></div></div>
-      <div class="agenda-card"><span class="ag-num">02</span><div><h3>Infraestructura con IA</h3><p>Qué es, cómo funciona y por qué cambia completamente la operación de un agente inmobiliario.</p></div></div>
-      <div class="agenda-card"><span class="ag-num">03</span><div><h3>Los 5 Componentes del Sistema</h3><p>CRM · IA WhatsApp · Instagram · Agendamiento · Dashboard — todo integrado y funcionando.</p></div></div>
-      <div class="agenda-card"><span class="ag-num">04</span><div><h3>Casos de Éxito Reales</h3><p>3 implementaciones reales con resultados medibles. Antes y después de tener infraestructura con IA.</p></div></div>
-      <div class="agenda-card"><span class="ag-num">05</span><div><h3>Demo en Vivo</h3><p>El sistema funcionando: lead → IA → cita confirmada. Sin edición, sin cortes, en tiempo real.</p></div></div>
-      <div class="agenda-card"><span class="ag-num">06</span><div><h3>La Oferta + Q&amp;A</h3><p>Condiciones exclusivas para asistentes del webinar y tus preguntas respondidas en vivo.</p></div></div>
-    </div>
-    <div class="cta-strip">
-      <a href="#registro" class="btn btn-gold">Reservar mi lugar — es gratis →</a>
-      <a href="https://wa.me/17863409689?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20del%20webinar%20de%20Flamia%20Group" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Tengo preguntas</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── COMPONENTS ── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Real Estate Infrastructure System</div>
-    <h2 class="st">5 piezas integradas que trabajan<br>24 horas, 7 días a la semana</h2>
-    <p class="sd">El lead llega. El sistema lo trabaja. La cita aparece en tu calendario. Tú solo cierras.</p>
-    <div class="comp-list">
-      <div class="comp-row"><span class="comp-n">01</span><div><div class="comp-t">CRM Profesional — GoHighLevel</div><div class="comp-d">Pipeline real: Lead → Contactado → Calificado → Visita → Oferta → Cerrado. Lead scoring automático. Próxima acción programada para cada prospecto — sin depender de tu memoria o WhatsApp.</div></div><span class="comp-tag">Infraestructura</span></div>
-      <div class="comp-row"><span class="comp-n">02</span><div><div class="comp-t">Agente IA en WhatsApp</div><div class="comp-d">Responde en segundos — 2AM, domingo, feriado. No es un bot genérico: responde con contexto real de tu agencia, califica leads, detecta intención de compra y alimenta el CRM en tiempo real.</div></div><span class="comp-tag">Automatización</span></div>
-      <div class="comp-row"><span class="comp-n">03</span><div><div class="comp-t">Instagram Conectado al Sistema</div><div class="comp-d">Cada DM, comentario y respuesta a historia entra automáticamente al CRM. Se clasifica. Se da seguimiento. Fin del caos — todo centralizado con historial completo.</div></div><span class="comp-tag">Integración</span></div>
-      <div class="comp-row"><span class="comp-n">04</span><div><div class="comp-t">Agendamiento Automático</div><div class="comp-d">El lead elige su cita. 3 cosas pasan simultáneamente: cita en tu calendario, confirmación al lead y perfil completo del prospecto — sin una sola llamada de coordinación.</div></div><span class="comp-tag">Conversión</span></div>
-      <div class="comp-row"><span class="comp-n">05</span><div><div class="comp-t">Dashboard Unificado</div><div class="comp-d">Un solo lugar. Todo en tiempo real. Leads activos, los más calientes, citas confirmadas y valor del pipeline — sin abrir WhatsApp, sin revisar Excel. Visible en 10 segundos.</div></div><span class="comp-tag">Métricas</span></div>
-    </div>
-    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Ver el sistema en acción el 21 de mayo →</a></div>
-  </div>
-</section>
-
-<!-- ── FLOW ── -->
-<section class="flow-section">
-  <div class="container" style="text-align:center">
-    <div class="section-tag">El flujo completo</div>
-    <h2 class="st">De lead a cita confirmada<br>— sin tocar el teléfono</h2>
-    <p class="sd" style="margin:0 auto 48px;">En segundos. A cualquier hora. Sin intervención humana.</p>
-    <div class="flow-steps">
-      <div class="flow-step"><span class="step-icon">📥</span><div class="step-name">Lead entra</div><div class="step-desc">IG · WA · Referido</div></div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step"><span class="step-icon">🤖</span><div class="step-name">IA responde</div><div class="step-desc">En segundos. 24/7.</div></div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step"><span class="step-icon">🎯</span><div class="step-name">Califica</div><div class="step-desc">¿Serio o curioso?</div></div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step"><span class="step-icon">📅</span><div class="step-name">Agenda cita</div><div class="step-desc">Link automático</div></div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step"><span class="step-icon">📊</span><div class="step-name">Todo al CRM</div><div class="step-desc">Historial completo</div></div>
-    </div>
-    <div class="flow-result">El agente abre el lunes con <strong>citas ya confirmadas</strong> que el sistema consiguió mientras tenía el fin de semana libre.</div>
-    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Quiero este sistema → Regístrate gratis</a></div>
-  </div>
-</section>
-
-<!-- ── CASES ── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Casos de éxito reales</div>
-    <h2 class="st">No testimonios.<br>Operaciones implementadas.</h2>
-    <p class="sd">Resultados medibles con infraestructura real configurada por Flamia Group.</p>
-    <div class="cases-grid">
-      <div class="case-card">
-        <div class="case-name">Daniela Jaramillo</div>
-        <div class="case-role">Realtor · Miami, Florida — Sector Residencial</div>
-        <div class="before-after">
-          <div class="ba-col before"><h4>Antes del sistema</h4><ul><li>Gestionaba leads por WhatsApp y notas de celular</li><li>Respondía mensajes a las 11 PM sin sistema de soporte</li><li>Sin visibilidad de leads activos ni etapa en el pipeline</li><li>Perdía prospectos de Instagram por falta de seguimiento</li><li>Cerraba 1–2 propiedades al mes con esfuerzo máximo</li></ul></div>
-          <div class="ba-col after"><h4>Después del sistema</h4><ul><li>CRM con pipeline inmobiliario activo y estructurado</li><li>IA responde leads de Instagram y WhatsApp 24/7</li><li>Llega el lunes con citas ya confirmadas automáticamente</li><li>Lead scoring identifica los prospectos más calientes</li><li>Dashboard con pipeline y métricas en tiempo real</li></ul></div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-name">Tesla Technologies</div>
-        <div class="case-role">Empresa · Infraestructura de Ventas integrada en CRM</div>
-        <div class="before-after">
-          <div class="ba-col before"><h4>El reto</h4><ul><li>Equipo de ventas sin visibilidad del pipeline real</li><li>Leads sin seguimiento sistemático por falta de herramientas</li><li>Sin métricas de cierre ni tasas de conversión claras</li><li>Coordinación manual de reuniones que consumía tiempo</li></ul></div>
-          <div class="ba-col after"><h4>Lo que implementamos</h4><ul><li>Pipeline en GHL estructurado por etapas con probabilidad</li><li>Agente IA en WhatsApp — califica leads 24/7</li><li>Reuniones agendadas automáticamente con perfil del prospecto</li><li>Dashboard: leads por vendedor, conversión, pipeline total</li></ul></div>
-        </div>
-      </div>
-    </div>
-    <div class="cta-strip">
-      <a href="#registro" class="btn btn-gold">Quiero resultados como estos →</a>
-      <a href="https://wa.me/17863409689?text=Hola%2C%20vi%20los%20casos%20de%20%C3%A9xito%20de%20Flamia%20y%20quiero%20saber%20si%20aplica%20para%20mi%20operaci%C3%B3n" target="_blank" class="btn btn-wa"><svg class="wa-ico" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>¿Aplica para mi operación?</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── BONUSES ── -->
-<section style="background:var(--bg2)">
-  <div class="container">
-    <div class="section-tag">Bonos incluidos</div>
-    <h2 class="st">Lo que recibes como asistente<br>— sin costo adicional</h2>
-    <p class="sd">Solo para los agentes que entren en este ciclo de implementación.</p>
-    <div class="bonus-grid">
-      <div class="bonus-card"><span class="bonus-n">1</span><div><h3>Auditoría de Infraestructura</h3><p>Mapeamos tu operación e identificamos los puntos exactos de fuga de leads y dinero antes de implementar.</p></div></div>
-      <div class="bonus-card"><span class="bonus-n">2</span><div><h3>Blueprint de Seguimiento Profesional</h3><p>El protocolo de seguimiento personalizado según etapa e intención de compra de cada lead en tu mercado.</p></div></div>
-      <div class="bonus-card"><span class="bonus-n">3</span><div><h3>Optimización del Pipeline — 30 días</h3><p>Acompañamiento directo el primer mes para que el sistema funcione al 100% desde el día 1.</p></div></div>
-    </div>
-    <div class="conditions-box">
-      <h3>⚠ Condiciones de este ciclo</h3>
-      <ul>
-        <li>Solo 5 implementaciones por ciclo — garantizamos acompañamiento real para cada cliente</li>
-        <li>Aplicación abierta solo durante las 24 horas posteriores al webinar</li>
-        <li>Hay un proceso de aplicación — buscamos agentes listos para comprometerse</li>
-        <li>Después cerramos el acceso a este ciclo. Sin excepciones.</li>
+<!-- ── NIVEL 1 · PÁGINA WEB ── -->
+<section class="blk" id="nivel-1">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 1 · Lo básico</span><div class="ladder" role="img" aria-label="Nivel 1 de 6"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <h2>Una página web que trae clientes a tu WhatsApp</h2>
+      <p class="lead">Tu cliente te busca en internet antes de escribirte. Creamos sitios y páginas claras, rápidas y hechas para convertir visitas en conversaciones.</p>
+      <ul class="ticks">
+        <li>Página profesional que se ve bien en el celular.</li>
+        <li>Botón de WhatsApp en los lugares clave.</li>
+        <li>Formularios conectados a tu sistema.</li>
+        <li>Diseñada a la medida de tu negocio.</li>
       </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, me interesa una página web que traiga clientes a mi WhatsApp."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero mi página</a>
     </div>
-    <div class="cta-strip"><a href="#registro" class="btn btn-gold">Asegurar mi lugar en el webinar →</a></div>
+    <div class="vis" data-seq data-gap="700" data-hold="3000" aria-hidden="true">
+      <div class="br-top"><i></i><i></i><i></i><span>tunegocio.com</span></div>
+      <div class="br-body">
+        <div class="bl-nav" data-step></div>
+        <div class="bl-hero" data-step><span></span><span></span></div>
+        <div class="bl-row" data-step><i></i><i></i><i></i></div>
+        <div class="bl-btn" data-step>Escríbenos por WhatsApp</div>
+      </div>
+      <div class="toast" data-step>✓ Nuevo contacto recibido</div>
+    </div>
   </div>
 </section>
 
-<!-- ── FINAL CTA ── -->
-<section class="cta-section">
+<!-- ── NIVEL 2 · CRM ── -->
+<section class="blk alt rev" id="nivel-2">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 2 · Orden</span><div class="ladder" role="img" aria-label="Nivel 2 de 6"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+      <h2>Todos tus clientes ordenados en un solo lugar</h2>
+      <p class="lead">Un CRM es tu libreta de clientes inteligente. Cada contacto queda registrado con su historial y la etapa en la que va. Usamos GoHighLevel.</p>
+      <ul class="ticks">
+        <li>Sabes cuántos clientes tienes y en qué etapa está cada uno.</li>
+        <li>Recordatorios para que no se te quede nadie sin atender.</li>
+        <li>Historial completo de cada conversación.</li>
+        <li>Todo tu equipo ve la misma información.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, quiero ordenar mis clientes con un CRM. ¿Me explican cómo funciona?"><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero ordenar mis clientes</a>
+    </div>
+    <div class="vis kb" data-seq data-gap="1100" data-hold="2800" aria-hidden="true">
+      <div class="kb-in">
+        <div class="kb-cols">
+          <div class="kc"><h4>Nuevo</h4><div class="slot"></div><div class="ks"><b>Carlos R.</b><small>Pidió precio</small></div><div class="ks"><b>Lucía M.</b><small>Consulta</small></div></div>
+          <div class="kc"><h4>Contacto</h4><div class="slot"></div><div class="ks"><b>Andrés T.</b><small>En seguimiento</small></div></div>
+          <div class="kc"><h4>Cita</h4><div class="slot"></div><div class="ks"><b>Sofía L.</b><small>Martes 10:00</small></div></div>
+          <div class="kc"><h4>Cerrado</h4><div class="slot"></div><div class="ks"><b>Pedro G.</b><small>Cliente</small></div></div>
+        </div>
+        <div class="kmove"><b>María P.</b><small>Cliente nuevo</small><span class="kdone">✓</span></div>
+      </div>
+      <i data-step></i><i data-step></i><i data-step></i><i data-step></i><i data-step></i>
+    </div>
+  </div>
+</section>
+
+<!-- ── NIVEL 3 · AUTOMATIZACIÓN ── -->
+<section class="blk" id="nivel-3">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 3 · Automatización</span><div class="ladder" role="img" aria-label="Nivel 3 de 6"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      <h2>Seguimiento que no se olvida de nadie</h2>
+      <p class="lead">Programamos mensajes y tareas para que pasen solos: bienvenida, recordatorios, seguimiento, confirmación de citas y avisos a tu equipo.</p>
+      <ul class="ticks">
+        <li>Mensajes automáticos por WhatsApp y correo.</li>
+        <li>Citas agendadas sin ir y venir de mensajes.</li>
+        <li>Recordatorios para que tus clientes no falten.</li>
+        <li>Aviso inmediato a tu equipo cuando hay un cliente listo.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, quiero automatizar el seguimiento a mis clientes."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero automatizar</a>
+    </div>
+    <div class="vis dim" data-seq data-gap="1000" data-hold="3200" aria-hidden="true">
+      <div class="tli" data-step><span class="dot"></span><div><b>Al instante</b><p>El cliente recibe un mensaje de bienvenida por WhatsApp.</p></div></div>
+      <div class="tli" data-step><span class="dot"></span><div><b>Al día siguiente</b><p>Mensaje de seguimiento para retomar la conversación.</p></div></div>
+      <div class="tli" data-step><span class="dot"></span><div><b>Cita agendada</b><p>Confirmación al cliente y aviso a tu equipo.</p></div></div>
+      <div class="tli" data-step><span class="dot"></span><div><b>Antes de la cita</b><p>Recordatorio automático para que el cliente no falte.</p></div></div>
+      <div class="tli" data-step><span class="dot"></span><div><b>Después de la cita</b><p>Mensaje de agradecimiento y siguiente paso.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NIVEL 4 · IA EN WHATSAPP ── -->
+<section class="blk alt rev" id="nivel-4">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 4 · Inteligencia artificial</span><div class="ladder" role="img" aria-label="Nivel 4 de 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+      <h2>Un asistente con IA que atiende por WhatsApp, a toda hora</h2>
+      <p class="lead">Responde con la información de tu negocio, hace las preguntas correctas para saber si el cliente va en serio y le propone una cita. Si hace falta, te pasa la conversación.</p>
+      <ul class="ticks">
+        <li>Responde en segundos: de día, de noche y en feriados.</li>
+        <li>Separa al curioso del cliente que quiere comprar.</li>
+        <li>Agenda la cita y la guarda en tu CRM.</li>
+        <li>También se puede conectar a Instagram.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, quiero un asistente con IA en WhatsApp para mi negocio."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero mi asistente con IA</a>
+    </div>
+    <div class="vis grow" data-seq data-gap="1300" data-hold="3600" aria-hidden="true">
+      <div class="ph-head"><span class="av ai">IA</span><div><b>Asistente de tu negocio</b><small>responde en segundos</small></div></div>
+      <div class="ph-body">
+        <div class="m in" data-step>Hola, ¿tienen disponibilidad esta semana?</div>
+        <div class="typing" data-step data-temp><i></i><i></i><i></i></div>
+        <div class="m out" data-step>¡Hola! Sí 😊 ¿Prefieres el martes a las 10:00 o el jueves a las 3:00 pm?</div>
+        <div class="m in" data-step>El martes está bien</div>
+        <div class="typing" data-step data-temp><i></i><i></i><i></i></div>
+        <div class="m out" data-step>Listo, tu cita quedó agendada ✓ Te enviaré un recordatorio.</div>
+        <div class="saved" data-step>✓ Contacto y cita guardados en tu CRM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NIVEL 5 · IA DE VOZ ── -->
+<section class="blk" id="nivel-5">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 5 · IA de voz</span><div class="ladder" role="img" aria-label="Nivel 5 de 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <h2>Una voz con IA que contesta y llama por ti</h2>
+      <p class="lead">Un agente de voz natural que atiende llamadas, responde preguntas, agenda citas y hace llamadas de seguimiento. Para los clientes que prefieren hablar.</p>
+      <ul class="ticks">
+        <li>Atiende las llamadas que hoy se pierden.</li>
+        <li>Llamadas de confirmación y seguimiento.</li>
+        <li>Conectado a tu calendario y a tu CRM.</li>
+        <li>Voz natural, en español.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, me interesa un agente de voz con IA para atender las llamadas de mi negocio."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero un agente de voz</a>
+    </div>
+    <div class="vis grow" data-seq data-gap="1500" data-hold="3400" aria-hidden="true">
+      <div class="call-top"><div class="avw"><span class="ring"></span><span class="ring r2"></span><span class="av ai">IA</span></div><div><b>Llamada entrante</b><small>Asistente de voz · en curso</small></div></div>
+      <div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="tr">
+        <p class="t" data-step><em>Asistente</em>Buenas tardes, ¿en qué le puedo ayudar?</p>
+        <p class="t c" data-step><em>Cliente</em>Quisiera una cotización para esta semana.</p>
+        <p class="t" data-step><em>Asistente</em>Con gusto. ¿Le agendo una visita mañana a las 10?</p>
+        <p class="t ok" data-step>✓ Cita agendada y guardada en el CRM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NIVEL 6 · SISTEMAS A MEDIDA ── -->
+<section class="blk alt rev" id="nivel-6">
+  <div class="container split">
+    <div class="copy">
+      <div class="lvl-head"><span class="tag">Nivel 6 · Lo más avanzado</span><div class="ladder" role="img" aria-label="Nivel 6 de 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <h2>Sistemas hechos a la medida de tu negocio</h2>
+      <p class="lead">Cuando una herramienta lista no alcanza, desarrollamos lo que tu negocio necesita: aplicaciones web, sistemas de reservas, paneles de control e integraciones entre tus herramientas.</p>
+      <ul class="ticks">
+        <li>Aplicaciones y plataformas web propias.</li>
+        <li>Sistemas de reservas y citas.</li>
+        <li>Paneles con tus números en tiempo real.</li>
+        <li>Todo conectado: WhatsApp, CRM, calendario y más.</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, necesito un sistema o aplicación a la medida para mi negocio."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero algo a la medida</a>
+    </div>
+    <div class="vis" data-seq data-gap="450" data-hold="3600" aria-hidden="true">
+      <div class="kpis">
+        <div class="kpi" data-step><small>Clientes nuevos</small><b>128</b></div>
+        <div class="kpi" data-step><small>Citas agendadas</small><b>36</b></div>
+        <div class="kpi" data-step><small>Mensajes atendidos</small><b>412</b></div>
+      </div>
+      <div class="cbars">
+        <div class="cb" data-step style="--h:38%"></div>
+        <div class="cb" data-step style="--h:52%"></div>
+        <div class="cb" data-step style="--h:45%"></div>
+        <div class="cb" data-step style="--h:66%"></div>
+        <div class="cb" data-step style="--h:58%"></div>
+        <div class="cb" data-step style="--h:80%"></div>
+        <div class="cb" data-step style="--h:92%"></div>
+      </div>
+      <div class="chips2"><span data-step>WhatsApp</span><span data-step>CRM</span><span data-step>Calendario</span><span data-step>Tu sistema</span></div>
+      <p class="note">Ejemplo ilustrativo</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TODO JUNTO ── -->
+<section class="blk" id="como-funciona">
+  <div class="container center">
+    <span class="tag">Todo junto</span>
+    <h2>De un mensaje a una cita confirmada, sin que tengas que intervenir</h2>
+    <p class="lead">Así trabajan las piezas cuando están conectadas entre sí.</p>
+    <div class="flowrow dim" data-seq data-gap="650" data-hold="3200">
+      <div class="fs" data-step><span class="ico">💬</span><b>El cliente escribe</b><small>WhatsApp, web o Instagram</small></div>
+      <span class="fa" data-step><i>→</i></span>
+      <div class="fs" data-step><span class="ico">🤖</span><b>La IA responde</b><small>En segundos, a toda hora</small></div>
+      <span class="fa" data-step><i>→</i></span>
+      <div class="fs" data-step><span class="ico">🎯</span><b>Califica</b><small>Detecta si quiere comprar</small></div>
+      <span class="fa" data-step><i>→</i></span>
+      <div class="fs" data-step><span class="ico">📅</span><b>Agenda la cita</b><small>En tu calendario</small></div>
+      <span class="fa" data-step><i>→</i></span>
+      <div class="fs" data-step><span class="ico">📊</span><b>Queda en tu CRM</b><small>Con el historial completo</small></div>
+    </div>
+    <div class="flow-result">Tú llegas al día siguiente con las citas ya agendadas y te dedicas a lo importante: <strong>atender y cerrar.</strong></div>
+    <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, quiero implementar el sistema completo: IA, CRM y citas automáticas."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero este sistema</a>
+  </div>
+</section>
+
+<!-- ── CASOS ── -->
+<section class="blk alt" id="casos">
+  <div class="container center">
+    <span class="tag">Casos reales</span>
+    <h2>Negocios que ya trabajan con FLAMIA</h2>
+    <p class="lead">Distintos países, distintos rubros y una misma idea: que no se pierda ningún cliente.</p>
+
+    <div class="cases">
+      <article class="case">
+        <span class="cpill">Colombia · Energía solar</span>
+        <h3>Tesla Technologies</h3>
+        <ul class="ticks">
+          <li>CRM en GoHighLevel para organizar a cada interesado.</li>
+          <li>Asistente de IA en WhatsApp que hace las preguntas clave a quien quiere paneles solares.</li>
+          <li>Clientes clasificados según qué tan listos están para comprar.</li>
+        </ul>
+        <div class="chain" aria-hidden="true"><span>Mensaje</span><i></i><span>Califica</span><i></i><span>Cita</span></div>
+      </article>
+
+      <article class="case">
+        <span class="cpill">Perú · Estudio de podcast</span>
+        <h3>Tu Podcast Perú</h3>
+        <ul class="ticks">
+          <li>Asistente de IA en WhatsApp que atiende a los interesados y agenda su llamada.</li>
+          <li>CRM con etapas de venta y puntaje para cada contacto.</li>
+          <li>Seguimiento automático por WhatsApp y correo.</li>
+        </ul>
+        <div class="chain" aria-hidden="true"><span>Mensaje</span><i></i><span>Califica</span><i></i><span>Cita</span></div>
+      </article>
+
+      <article class="case">
+        <span class="cpill">Perú · Agencia de marketing</span>
+        <h3>Mono Agency</h3>
+        <ul class="ticks">
+          <li>Asistente de IA que atiende a los prospectos que llegan desde anuncios de Meta.</li>
+          <li>Entiende la situación de cada uno y agenda la llamada.</li>
+          <li>CRM con etapas de venta y secuencias automáticas.</li>
+        </ul>
+        <div class="chain" aria-hidden="true"><span>Mensaje</span><i></i><span>Califica</span><i></i><span>Cita</span></div>
+      </article>
+
+      <article class="case">
+        <span class="cpill">Miami, EE.UU. · Persianas y cortinas</span>
+        <h3>Olvera Blinds</h3>
+        <ul class="ticks">
+          <li>Atención automática por WhatsApp a quienes piden una cotización.</li>
+          <li>Seguimiento a cada interesado hasta que decide.</li>
+          <li>Visitas y citas organizadas en un solo lugar.</li>
+        </ul>
+        <div class="chain" aria-hidden="true"><span>Mensaje</span><i></i><span>Califica</span><i></i><span>Cita</span></div>
+      </article>
+
+      <article class="case">
+        <span class="cpill">Costa Rica · Inmobiliaria</span>
+        <h3>AS Propiedades</h3>
+        <ul class="ticks">
+          <li>CRM inmobiliario en GoHighLevel con cada contacto y oportunidad en su etapa.</li>
+          <li>Automatizaciones conectadas al pipeline de ventas.</li>
+          <li>Todo el equipo trabaja con la misma información.</li>
+        </ul>
+        <div class="chain" aria-hidden="true"><span>Mensaje</span><i></i><span>Califica</span><i></i><span>Cita</span></div>
+      </article>
+    </div>
+
+    <div class="marq" aria-label="Rubros con los que trabajamos">
+      <div class="marq-track">
+        <span>Energía solar</span><span>Inmobiliarias</span><span>Agencias de marketing</span><span>Estudios de podcast</span><span>Persianas y hogar</span><span>Estética y belleza</span><span>Barberías</span><span>Servicios con citas</span>
+        <span aria-hidden="true">Energía solar</span><span aria-hidden="true">Inmobiliarias</span><span aria-hidden="true">Agencias de marketing</span><span aria-hidden="true">Estudios de podcast</span><span aria-hidden="true">Persianas y hogar</span><span aria-hidden="true">Estética y belleza</span><span aria-hidden="true">Barberías</span><span aria-hidden="true">Servicios con citas</span>
+      </div>
+    </div>
+
+    <a class="btn btn-wa" href="https://wa.me/17863409689" data-wa="Hola, vi los casos de FLAMIA y quiero saber cómo aplicaría en mi negocio."><svg class="wa-ico" width="18" height="18" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Quiero un caso como estos</a>
+  </div>
+</section>
+
+<!-- ── CÓMO TRABAJAMOS ── -->
+<section class="blk" id="proceso">
+  <div class="container center">
+    <span class="tag">Cómo trabajamos</span>
+    <h2>Tres pasos, sin complicaciones</h2>
+    <p class="lead">No necesitas saber de tecnología. Nosotros nos encargamos.</p>
+    <div class="dim" data-seq data-gap="1100" data-hold="3200">
+      <div class="steps3">
+        <div class="stp" data-step><div class="n">1</div><h3>Conversamos</h3><p>Nos cuentas cómo te llegan y cómo atiendes hoy a tus clientes.</p></div>
+        <div class="stp" data-step><div class="n">2</div><h3>Lo construimos</h3><p>Configuramos el CRM, las automatizaciones y la IA con la información de tu negocio.</p></div>
+        <div class="stp" data-step><div class="n">3</div><h3>Lo mejoramos contigo</h3><p>Revisamos cómo funciona, ajustamos y seguimos mejorando mes a mes.</p></div>
+      </div>
+      <div class="pbar" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PREGUNTAS FRECUENTES ── -->
+<section class="blk alt" id="preguntas">
+  <div class="container center">
+    <span class="tag">Preguntas frecuentes</span>
+    <h2>Lo que más nos preguntan</h2>
+    <div class="faq">
+      <details><summary>¿Necesito saber de tecnología?</summary><div class="ans">No. Nosotros configuramos todo y te explicamos cómo usarlo, paso a paso.</div></details>
+      <details><summary>¿La IA reemplaza a mi equipo?</summary><div class="ans">No. Atiende las consultas repetitivas y las primeras conversaciones, y te pasa a ti las que necesitan una persona.</div></details>
+      <details><summary>¿Funciona con el WhatsApp que ya uso?</summary><div class="ans">Depende de cómo esté configurado tu WhatsApp hoy. Lo revisamos contigo y te decimos cuál es la mejor opción para tu caso.</div></details>
+      <details><summary>¿Cuánto tarda en estar listo?</summary><div class="ans">Depende de lo que necesites. Una página, un CRM o una automatización básica pueden estar listos en pocos días; los sistemas a medida toman más tiempo. Te damos un plazo claro desde el inicio.</div></details>
+      <details><summary>¿Sirve para mi tipo de negocio?</summary><div class="ans">Si tus clientes te escriben, te llaman o piden citas, sí. Trabajamos con inmobiliarias, energía solar, agencias de marketing, estudios de podcast, negocios de persianas y más.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta" id="contacto">
   <div class="container">
-    <h2>¿Cuántas propiedades más<br>vas a <span class="gold-text">dejar ir?</span></h2>
-    <p>Un webinar. Una decisión. El sistema que pone tu negocio a trabajar mientras tú tienes el fin de semana libre.</p>
-    <div class="cta-buttons">
-      <a href="#registro" class="btn btn-gold cta-big">Reservar mi lugar gratis →</a>
-      <a href="https://wa.me/17863409689?text=Hola%2C%20quiero%20agendar%20una%20sesi%C3%B3n%201%3A1%20antes%20del%20webinar%20de%20Flamia" target="_blank" class="btn btn-wa cta-big"><svg class="wa-ico" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Sesión 1:1 primero</a>
-    </div>
-    <div class="scarcity"><span class="dot"></span>Solo 12 cupos · Aplicación abierta 24 horas tras el webinar · Los cupos se están llenando</div>
+    <h2>Cuéntanos de tu negocio y te decimos por dónde empezar</h2>
+    <p>Escríbenos por WhatsApp. Te respondemos y vemos juntos qué parte de tu atención a clientes podemos automatizar primero.</p>
+    <a class="btn btn-wa btn-big" href="https://wa.me/17863409689" data-wa="Hola, quiero hablar con FLAMIA sobre mi negocio."><svg class="wa-ico" width="22" height="22" fill="#fff" aria-hidden="true"><use href="#wa"/></svg>Hablar por WhatsApp</a>
   </div>
 </section>
 
-<hr class="div">
+</main>
+
 <footer>
   <div class="f-logo">FLAMIA GROUP</div>
-  <p>Real Estate Infrastructure System™ · Especialistas en infraestructura inmobiliaria con IA<br>flamiagroup.com · "Convertimos agentes en empresas inmobiliarias."<br><br>© 2025 Flamia Group · Todos los derechos reservados<br>Este webinar es exclusivo para agentes inmobiliarios comprometidos con escalar su operación.</p>
+  <p>Automatización e inteligencia artificial para negocios<br>
+  Miami, Florida · <a href="https://www.flamiagroup.com">flamiagroup.com</a><br>
+  WhatsApp +1 786 340 9689<br>
+  <a href="privacy-policy/">Política de privacidad</a> · <a href="terms-and-conditions/">Términos y condiciones</a><br>
+  © 2026 Flamia Group. Todos los derechos reservados.</p>
 </footer>
 
-
-<!-- ── MODAL POST-REGISTRO ── -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-icon">🎉</span>
-    <h3>¡Registro recibido, <span class="modal-name" id="modal-name">agente</span>!</h3>
-    <p>Tu lugar está reservado para el <strong>21 de mayo a las 10 AM ET</strong>.<br>Para confirmar y entrar al seguimiento del webinar, envíame un mensaje directo por WhatsApp — un solo clic:</p>
-    <a class="modal-wa-btn" id="modal-wa-link" href="#" target="_blank">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Confirmar por WhatsApp →
-    </a>
-    <p class="modal-skip" onclick="closeModal()">Saltar por ahora y volver a la página</p>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/js/intlTelInput.min.js"></script>
 <script>
-// ── INTL-TEL-INPUT INIT ──
-const phoneInput = document.querySelector("#f-phone");
-const iti = window.intlTelInput(phoneInput, {
-  initialCountry: "us",
-  separateDialCode: true,
-  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/19.2.16/js/utils.js"
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ── WhatsApp: mensaje prellenado por sección + evento del Pixel ──
+document.querySelectorAll('[data-wa]').forEach(a => {
+  a.href = 'https://wa.me/17863409689?text=' + encodeURIComponent(a.dataset.wa);
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.addEventListener('click', () => { try { fbq('track', 'Contact'); } catch (e) {} });
 });
 
-// ── SESSION ID ──
-function getSessionId() {
-  let sid = localStorage.getItem('flamia_session_id');
-  if (!sid) {
-    sid = 'sid_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-    localStorage.setItem('flamia_session_id', sid);
+// ── Animaciones por pasos: arrancan al entrar en pantalla y se repiten ──
+document.querySelectorAll('[data-seq]').forEach(box => {
+  const steps = [...box.querySelectorAll('[data-step]')];
+  const gap = +box.dataset.gap || 900, hold = +box.dataset.hold || 3000;
+  const counters = box.querySelectorAll('[data-counter]');
+  const setCount = v => counters.forEach(el => { el.textContent = v; el.style.visibility = v > 0 ? 'visible' : 'hidden'; });
+  const setNow = n => { box.dataset.now = n; };
+  let i = 0, t = null, live = false;
+
+  if (RM) {
+    let last = 0;
+    steps.forEach(s => { if (!s.hasAttribute('data-temp')) s.classList.add('on'); if (s.dataset.count) last = +s.dataset.count; });
+    setNow(steps.length); setCount(last);
+    return;
   }
-  return sid;
-}
 
-// ── COUNTDOWN — 21 mayo 2026 10:00 AM ET ──
-const WEBINAR = new Date('2026-05-21T10:00:00-04:00');
-function tick() {
-  const diff = WEBINAR - Date.now();
-  const pad = n => String(Math.max(0,n)).padStart(2,'0');
-  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent='00'); return; }
-  document.getElementById('cd-d').textContent = pad(Math.floor(diff/86400000));
-  document.getElementById('cd-h').textContent = pad(Math.floor(diff%86400000/3600000));
-  document.getElementById('cd-m').textContent = pad(Math.floor(diff%3600000/60000));
-  document.getElementById('cd-s').textContent = pad(Math.floor(diff%60000/1000));
-}
-tick(); setInterval(tick, 1000);
+  box.classList.add('armed');
+  setNow(0); setCount(0);
 
-// ── FORM → WhatsApp modal ──
-function submitForm() {
-  const name   = document.getElementById('f-name').value.trim();
-  const email  = document.getElementById('f-email').value.trim();
-  const market   = document.getElementById('f-market').value;
-  const leads    = document.getElementById('f-leads').value;
-  const sessionId = getSessionId();
+  const next = () => {
+    if (i > 0 && steps[i - 1].hasAttribute('data-temp')) steps[i - 1].classList.remove('on');
+    if (i < steps.length) {
+      const s = steps[i];
+      s.classList.add('on');
+      if (s.dataset.count) setCount(+s.dataset.count);
+      i++; setNow(i);
+      t = setTimeout(next, gap);
+    } else {
+      t = setTimeout(reset, hold);
+    }
+  };
+  const reset = () => {
+    steps.forEach(s => s.classList.remove('on'));
+    i = 0; setNow(0); setCount(0);
+    t = setTimeout(next, 700);
+  };
 
-  if (!name || !email || !iti.isValidNumber()) { 
-    alert('Por favor completa tu nombre, email y un número de teléfono válido.'); 
-    return; 
-  }
-  
-  // Obtener el número completo con el código de país
-  const phone = iti.getNumber();
-
-  // Enviar a n8n en segundo plano
-  fetch('https://personaldev-n8n.aaqnec.easypanel.host/webhook/Flamia-landing-ghl-formulario', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-      name, 
-      email, 
-      phone, 
-      market, 
-      leads, 
-      sessionId, 
-      source: 'flamia-landing-1',
-      timestamp: new Date().toISOString()
-    })
-  }).catch(err => console.error('Webhook error:', err));
-
-  const msg = encodeURIComponent(
-    `🔔 *NUEVO REGISTRO WEBINAR FLAMIA*\n\n` +
-    `👤 Nombre: ${name}\n` +
-    `📧 Email: ${email}\n` +
-    `📱 WhatsApp: ${phone || 'No ingresado'}\n` +
-    `🌎 Mercado: ${market || 'No especificado'}\n` +
-    `📊 Leads/mes: ${leads || 'No especificado'}\n\n` +
-    `✅ Me registro para el webinar del 21 de mayo a las 10 AM ET.\n` +
-    `Quiero confirmar mi lugar y recibir la info del sistema de infraestructura con IA de Flamia Group.`
-  );
-
-  document.getElementById('modal-name').textContent = name.split(' ')[0];
-  document.getElementById('modal-wa-link').href = `https://wa.me/17863409689?text=${msg}`;
-  document.getElementById('modal').classList.add('active');
-}
-
-function closeModal() { document.getElementById('modal').classList.remove('active'); }
-document.getElementById('modal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
-
-// ── PARTICLES (NATURAL BOKEH) ──
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let pts = [];
-
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-class Point {
-  constructor() {
-    this.init();
-  }
-  init() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 0.1;
-    this.vy = (Math.random() - 0.5) * 0.1;
-    this.r = Math.random() * 1.5 + 0.5;
-    this.baseOpacity = Math.random() * 0.1 + 0.05;
-    this.opacity = 0;
-    this.phase = Math.random() * Math.PI * 2;
-    this.fadeSpeed = Math.random() * 0.02 + 0.005;
-  }
-  update() {
-    this.x += this.vx; this.y += this.vy;
-    this.phase += this.fadeSpeed;
-    this.opacity = this.baseOpacity + Math.sin(this.phase) * 0.1;
-    
-    if(this.x<0 || this.x>canvas.width || this.y<0 || this.y>canvas.height) this.init();
-  }
-  draw() {
-    ctx.beginPath();
-    let g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 4);
-    g.addColorStop(0, `rgba(168, 85, 247, ${this.opacity})`);
-    g.addColorStop(0.4, `rgba(168, 85, 247, ${this.opacity * 0.3})`);
-    g.addColorStop(1, 'rgba(168, 85, 247, 0)');
-    ctx.fillStyle = g;
-    ctx.arc(this.x, this.y, this.r * 4, 0, Math.PI*2);
-    ctx.fill();
-  }
-}
-
-for(let i=0; i<50; i++) pts.push(new Point());
-
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  // Capa de fondo muy suave
-  pts.forEach(p => {
-    p.update(); p.draw();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
-
-// ── smooth scroll ──
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
-  });
+  new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting && !live) { live = true; t = setTimeout(next, 400); }
+    else if (!e.isIntersecting && live) { live = false; clearTimeout(t); }
+  }), { threshold: .35 }).observe(box);
 });
+
+// ── Partículas de fondo ──
+(() => {
+  if (RM) return;
+  const c = document.getElementById('bg-canvas'), x = c.getContext('2d');
+  let W, H;
+  const size = () => { W = c.width = innerWidth; H = c.height = innerHeight; };
+  size(); addEventListener('resize', size);
+  const mk = () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12, r: Math.random() * 1.5 + .6, o: Math.random() * .1 + .05, p: Math.random() * 6.28, s: Math.random() * .02 + .005 });
+  const pts = Array.from({ length: 45 }, mk);
+  (function loop() {
+    x.clearRect(0, 0, W, H);
+    for (let k = 0; k < pts.length; k++) {
+      const p = pts[k];
+      p.x += p.vx; p.y += p.vy; p.p += p.s;
+      const o = Math.max(0, p.o + Math.sin(p.p) * .1);
+      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) pts[k] = mk();
+      const g = x.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+      g.addColorStop(0, 'rgba(168,85,247,' + o + ')');
+      g.addColorStop(.4, 'rgba(168,85,247,' + o * .3 + ')');
+      g.addColorStop(1, 'rgba(168,85,247,0)');
+      x.fillStyle = g; x.beginPath(); x.arc(p.x, p.y, p.r * 4, 0, 6.2832); x.fill();
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
 </script>
 </body>
 </html>
